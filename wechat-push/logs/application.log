@@ -1,0 +1,11 @@
+2026-03-21 05:23:42.122 [connection-pool-2-1] INFO  c.d.o.a.s.n.w.WebsocketTransportConnector - [DingTalk] start websocket connection, uri=wss://wss-open-connection.dingtalk.com:443/connect
+2026-03-21 05:23:42.317 [connection-pool-2-1] INFO  c.d.o.a.s.n.core.DefaultSessionPool - [DingTalk] connection is established, connectionId=1186131d-24a3-11f1-a5a1-f69766ca5e28
+2026-03-21 05:23:43.297 [HikariCP-PROD:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariCP-PROD - Thread starvation or clock leap detected (housekeeper delta=11h3m3s104ms341µs200ns).
+2026-03-21 16:23:34.623 [nioEventLoopGroup-4-4] INFO  c.d.o.a.s.n.ws.ProtocolFrameHandler - [DingTalk] connection is closed, connectionId=1186131d-24a3-11f1-a5a1-f69766ca5e28
+2026-03-21 16:23:35.723 [connection-pool-2-1] INFO  c.d.o.a.s.n.w.WebsocketTransportConnector - [DingTalk] start websocket connection, uri=wss://wss-open-connection.dingtalk.com:443/connect
+2026-03-21 16:23:36.480 [connection-pool-2-1] INFO  c.d.o.a.s.n.core.DefaultSessionPool - [DingTalk] connection is established, connectionId=40736a73-24ff-11f1-a013-16081eb42775
+2026-03-21 16:23:56.529 [HikariCP-PROD:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariCP-PROD - Thread starvation or clock leap detected (housekeeper delta=11h18s209ms393µs300ns).
+2026-03-21 16:24:12.839 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-21 16:24:13.436 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-03-21 16:24:13.502 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-21 16:24:13.511 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP-PROD - Shutdown initiated...

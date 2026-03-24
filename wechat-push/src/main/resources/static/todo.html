@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>待办事项</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-name {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .btn-logout {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-logout:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .nav-tabs {
+            margin: 0 0 30px 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 10px;
+        }
+        
+        .nav-tabs .nav-item {
+            margin: 0 5px;
+        }
+        
+        .nav-tabs .nav-link {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .nav-tabs .nav-link.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .tab-content {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 30px;
+            min-height: 500px;
+        }
+        
+        .todo-item {
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .todo-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .todo-item:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+            border-color: #667eea;
+        }
+        
+        .todo-subject {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .todo-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .meta-item i {
+            color: #667eea;
+        }
+        
+        .todo-link {
+            margin-top: 15px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 80px 20px;
+            color: #666;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(102, 126, 234, 0.2);
+            border-radius: 50%;
+            border-top-color: #667eea;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: #666;
+        }
+        
+        .empty-state i {
+            font-size: 64px;
+            margin-bottom: 20px;
+            color: #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .empty-state:hover i {
+            color: #667eea;
+            transform: scale(1.1);
+        }
+        
+        .empty-state h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .empty-state p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .tab-content {
+                padding: 20px;
+            }
+            
+            .todo-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1 class="header-title">系统通知管理</h1>
+            <div class="user-info">
+                <span class="user-name" id="userName">用户：</span>
+                <button id="logoutBtn" class="btn-logout">退出登录</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="todo-tab" data-bs-toggle="tab" data-bs-target="#todo" type="button" role="tab" aria-controls="todo" aria-selected="true">待办</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="done-tab" data-bs-toggle="tab" data-bs-target="#done" type="button" role="tab" aria-controls="done" aria-selected="false">已办</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="todo" role="tabpanel" aria-labelledby="todo-tab">
+                <div id="todoLoading" class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>正在加载待办事项...</p>
+                </div>
+                <div id="todoEmpty" class="empty-state" style="display: none;">
+                    <i class="bi bi-calendar-check"></i>
+                    <h3>暂无待办事项</h3>
+                    <p>您的待办列表为空，继续保持良好的工作状态！</p>
+                </div>
+                <div id="todoList" style="display: none;"></div>
+            </div>
+            <div class="tab-pane fade" id="done" role="tabpanel" aria-labelledby="done-tab">
+                <div id="doneLoading" class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>正在加载已办事项...</p>
+                </div>
+                <div id="doneEmpty" class="empty-state" style="display: none;">
+                    <i class="bi bi-check-circle"></i>
+                    <h3>暂无已办事项</h3>
+                    <p>您的已办列表为空，开始处理一些任务吧！</p>
+                </div>
+                <div id="doneList" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 系统通知管理平台
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.js"></script>
+    <script>
+        // 检查登录状态
+        function checkLogin() {
+            const token = localStorage.getItem('token');
+            const userId = localStorage.getItem('userId');
+            if (!token || !userId) {
+                window.location.href = 'login.html';
+                return false;
+            }
+            document.getElementById('userName').textContent = `用户：${userId}`;
+            return true;
+        }
+
+        // 退出登录
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
+            window.location.href = 'login.html';
+        });
+
+        // 获取通知列表
+        function getTodoList(type, containerId, loadingId, emptyId) {
+            const token = localStorage.getItem('token');
+            const userId = localStorage.getItem('userId');
+            
+            // 显示加载状态
+            document.getElementById(loadingId).style.display = 'block';
+            document.getElementById(containerId).style.display = 'none';
+            document.getElementById(emptyId).style.display = 'none';
+            
+            // 构造请求参数
+            const targets = `{"LoginName":"${userId}"}`;
+            
+            // 调用接口
+            axios.post('/api/sys-notify/sysNotifyTodoRestService/getTodo', {
+                targets: targets,
+                type: type
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.data.code === 200) {
+                    const data = response.data.data;
+                    if (data.docs && data.docs.length > 0) {
+                        renderTodoList(data.docs, containerId);
+                    } else {
+                        document.getElementById(emptyId).style.display = 'block';
+                    }
+                } else {
+                    console.error('获取通知列表失败:', response.data.message);
+                    document.getElementById(emptyId).style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('获取通知列表失败:', error);
+                document.getElementById(emptyId).style.display = 'block';
+            })
+            .finally(() => {
+                document.getElementById(loadingId).style.display = 'none';
+            });
+        }
+
+        // 渲染待办列表
+        function renderTodoList(docs, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            docs.forEach(doc => {
+                const todoItem = document.createElement('div');
+                todoItem.className = 'todo-item';
+                
+                todoItem.innerHTML = `
+                    <div class="todo-subject">${doc.subject}</div>
+                    <div class="todo-meta">
+                        <div class="meta-item">
+                            <i class="bi bi-calendar"></i>
+                            <span>${doc.createTime}</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-tag"></i>
+                            <span>${doc.type === '1' ? '审批' : doc.type === '2' ? '通知' : '其他'}</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-building"></i>
+                            <span>${doc.appName || 'OA系统'}</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-module"></i>
+                            <span>${doc.modelName}</span>
+                        </div>
+                    </div>
+                    <div class="todo-link">
+                        <a href="${doc.link}" target="_blank" class="btn btn-primary">查看详情</a>
+                    </div>
+                `;
+                
+                // 添加动画效果
+                todoItem.style.opacity = '0';
+                todoItem.style.transform = 'translateY(20px)';
+                todoItem.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                container.appendChild(todoItem);
+                
+                // 触发动画
+                setTimeout(() => {
+                    todoItem.style.opacity = '1';
+                    todoItem.style.transform = 'translateY(0)';
+                }, 100 * docs.indexOf(doc));
+            });
+            
+            container.style.display = 'block';
+        }
+
+        // 初始化页面
+        function init() {
+            if (checkLogin()) {
+                // 加载待办列表
+                getTodoList(null, 'todoList', 'todoLoading', 'todoEmpty');
+                
+                // 监听标签页切换
+                const tabEl = document.getElementById('myTab');
+                tabEl.addEventListener('shown.bs.tab', function(event) {
+                    const tabId = event.target.getAttribute('aria-controls');
+                    if (tabId === 'done' && document.getElementById('doneList').style.display === 'none') {
+                        // 加载已办列表
+                        getTodoList(3, 'doneList', 'doneLoading', 'doneEmpty');
+                    }
+                });
+            }
+        }
+
+        // 页面加载完成后初始化
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

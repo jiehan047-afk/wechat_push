@@ -1,0 +1,1442 @@
+2026-02-26 11:08:41.586 [main] INFO  com.example.Application - Starting Application using Java 17.0.17 with PID 33928 (D:\project\AI\wechat-push\target\classes started by aiwh1 in D:\project\AI\wechat-push)
+2026-02-26 11:08:41.593 [main] DEBUG com.example.Application - Running with Spring Boot v3.5.9, Spring v6.2.15
+2026-02-26 11:08:41.594 [main] INFO  com.example.Application - The following 1 profile is active: "dev"
+2026-02-26 11:08:42.534 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-26 11:08:42.535 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-26 11:08:42.760 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 215 ms. Found 2 JPA repository interfaces.
+2026-02-26 11:08:42.780 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-26 11:08:42.782 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-26 11:08:42.810 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.repository.TodoItemRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-26 11:08:42.812 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.repository.UserBindRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-26 11:08:42.812 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2026-02-26 11:08:43.506 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-26 11:08:43.516 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-26 11:08:43.516 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-26 11:08:43.517 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.50]
+2026-02-26 11:08:43.614 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-26 11:08:43.615 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1978 ms
+2026-02-26 11:08:43.741 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-26 11:08:43.778 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.39.Final
+2026-02-26 11:08:43.805 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-26 11:08:44.058 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-26 11:08:44.098 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-26 11:08:44.430 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6369d01c
+2026-02-26 11:08:44.432 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-26 11:08:44.471 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-26 11:08:44.473 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-02-26 11:08:44.497 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-26 11:08:45.383 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-26 11:08:45.439 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26 11:08:45.902 [main] DEBUG c.e.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-02-26 11:08:46.059 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-26 11:08:47.089 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-26 11:08:47.368 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 196a7f13-f435-42e6-ac63-373c8bf758d4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-26 11:08:47.376 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-26 11:08:47.543 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-02-26 11:08:47.967 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-26 11:08:47.998 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-26 11:08:48.014 [main] INFO  com.example.Application - Started Application in 6.767 seconds (process running for 8.154)
+2026-02-26 11:18:47.296 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m32s632ms733µs100ns).
+2026-02-26 11:58:55.641 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=32m8s204ms628µs500ns).
+2026-02-26 12:07:37.073 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m11s394ms252µs600ns).
+2026-02-26 12:10:10.165 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m33s91ms876µs300ns).
+2026-02-26 12:15:01.441 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s217ms544µs100ns).
+2026-02-26 12:30:54.664 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26 12:30:54.665 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-26 12:30:54.682 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2026-02-26 12:30:55.426 [http-nio-8080-exec-1] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 604 ms
+2026-02-26 13:46:58.467 [http-nio-8080-exec-7] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 13:46:58.471 [http-nio-8080-exec-7] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 13:46:58.471 [http-nio-8080-exec-7] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 13:47:21.299 [http-nio-8080-exec-7] ERROR c.e.s.impl.SysNotifyServiceImpl - 远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:102)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:189)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:147)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:953)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:902)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:801)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:683)
+	at com.example.service.impl.SysNotifyServiceImpl.getTodo(SysNotifyServiceImpl.java:51)
+	at com.example.controller.SysNotifyController.getTodo(SysNotifyController.java:40)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.example.aspect.LogAspect.around(LogAspect.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:649)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:631)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.controller.SysNotifyController$$SpringCGLIB$$0.getTodo(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-02-26 13:47:21.338 [http-nio-8080-exec-7] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=null, pageno=null, count=null, docs=null, errorPage=true, message=远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"), timestamp=2026-02-26 13:47:21)
+执行时间：22874ms
+2026-02-26 13:47:27.571 [http-nio-8080-exec-4] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 13:47:27.571 [http-nio-8080-exec-4] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 13:47:27.572 [http-nio-8080-exec-4] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 13:49:55.651 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m45s693ms807µs400ns).
+2026-02-26 13:49:55.836 [http-nio-8080-exec-4] ERROR c.e.s.impl.SysNotifyServiceImpl - 远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:102)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:189)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:147)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:953)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:902)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:801)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:683)
+	at com.example.service.impl.SysNotifyServiceImpl.getTodo(SysNotifyServiceImpl.java:51)
+	at com.example.controller.SysNotifyController.getTodo(SysNotifyController.java:40)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.example.aspect.LogAspect.around(LogAspect.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:649)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:631)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.controller.SysNotifyController$$SpringCGLIB$$0.getTodo(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-02-26 13:49:55.842 [http-nio-8080-exec-4] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=null, pageno=null, count=null, docs=null, errorPage=true, message=远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"), timestamp=2026-02-26 13:49:55)
+执行时间：148271ms
+2026-02-26 13:50:01.377 [http-nio-8080-exec-5] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets={"LoginName":"xushuaiwen"}, type=0)}
+2026-02-26 13:50:01.378 [http-nio-8080-exec-5] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets={"LoginName":"xushuaiwen"}, type=0
+2026-02-26 13:50:01.381 [http-nio-8080-exec-5] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets={"LoginName":"xushuaiwen"}, type=0
+2026-02-26 13:50:32.981 [http-nio-8080-exec-5] ERROR c.e.s.impl.SysNotifyServiceImpl - 远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:102)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:189)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:147)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:953)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:902)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:801)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:683)
+	at com.example.service.impl.SysNotifyServiceImpl.getTodo(SysNotifyServiceImpl.java:51)
+	at com.example.controller.SysNotifyController.getTodo(SysNotifyController.java:40)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.example.aspect.LogAspect.around(LogAspect.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:649)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:631)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.controller.SysNotifyController$$SpringCGLIB$$0.getTodo(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-02-26 13:50:33.008 [http-nio-8080-exec-5] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=null, pageno=null, count=null, docs=null, errorPage=true, message=远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"), timestamp=2026-02-26 13:50:33)
+执行时间：31631ms
+2026-02-26 13:53:39.118 [http-nio-8080-exec-3] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 13:53:39.120 [http-nio-8080-exec-3] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 13:53:39.120 [http-nio-8080-exec-3] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 13:53:48.801 [http-nio-8080-exec-3] ERROR c.e.s.impl.SysNotifyServiceImpl - 远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:102)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:189)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:147)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:953)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:902)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:801)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:683)
+	at com.example.service.impl.SysNotifyServiceImpl.getTodo(SysNotifyServiceImpl.java:51)
+	at com.example.controller.SysNotifyController.getTodo(SysNotifyController.java:40)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.example.aspect.LogAspect.around(LogAspect.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:649)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:631)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.controller.SysNotifyController$$SpringCGLIB$$0.getTodo(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-02-26 13:53:48.826 [http-nio-8080-exec-3] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=null, pageno=null, count=null, docs=null, errorPage=true, message=远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"), timestamp=2026-02-26 13:53:48)
+执行时间：9708ms
+2026-02-26 13:54:08.065 [http-nio-8080-exec-8] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 13:54:08.067 [http-nio-8080-exec-8] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 13:54:08.068 [http-nio-8080-exec-8] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 13:54:55.750 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52s726ms498µs400ns).
+2026-02-26 13:54:55.931 [http-nio-8080-exec-8] ERROR c.e.s.impl.SysNotifyServiceImpl - 远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:102)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:189)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:147)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:953)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:902)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:801)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:683)
+	at com.example.service.impl.SysNotifyServiceImpl.getTodo(SysNotifyServiceImpl.java:51)
+	at com.example.controller.SysNotifyController.getTodo(SysNotifyController.java:40)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.example.aspect.LogAspect.around(LogAspect.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:649)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:631)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.controller.SysNotifyController$$SpringCGLIB$$0.getTodo(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-02-26 13:54:55.933 [http-nio-8080-exec-8] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=null, pageno=null, count=null, docs=null, errorPage=true, message=远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"), timestamp=2026-02-26 13:54:55)
+执行时间：47868ms
+2026-02-26 13:55:24.338 [http-nio-8080-exec-9] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 13:55:24.338 [http-nio-8080-exec-9] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 13:55:24.340 [http-nio-8080-exec-9] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 13:55:34.037 [http-nio-8080-exec-9] ERROR c.e.s.impl.SysNotifyServiceImpl - 远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:102)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:189)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:147)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:953)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:902)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:801)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:683)
+	at com.example.service.impl.SysNotifyServiceImpl.getTodo(SysNotifyServiceImpl.java:52)
+	at com.example.controller.SysNotifyController.getTodo(SysNotifyController.java:40)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.example.aspect.LogAspect.around(LogAspect.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:649)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:631)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.controller.SysNotifyController$$SpringCGLIB$$0.getTodo(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-02-26 13:55:34.069 [http-nio-8080-exec-9] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=null, pageno=null, count=null, docs=null, errorPage=true, message=远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"), timestamp=2026-02-26 13:55:34)
+执行时间：9732ms
+2026-02-26 13:56:42.979 [http-nio-8080-exec-1] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 13:56:42.980 [http-nio-8080-exec-1] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 13:56:42.980 [http-nio-8080-exec-1] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 13:57:40.571 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m12s352ms313µs600ns).
+2026-02-26 13:57:40.750 [http-nio-8080-exec-1] ERROR c.e.s.impl.SysNotifyServiceImpl - 远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:102)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:189)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:147)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:953)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:902)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:801)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:683)
+	at com.example.service.impl.SysNotifyServiceImpl.getTodo(SysNotifyServiceImpl.java:52)
+	at com.example.controller.SysNotifyController.getTodo(SysNotifyController.java:40)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.example.aspect.LogAspect.around(LogAspect.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:649)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:631)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.example.controller.SysNotifyController$$SpringCGLIB$$0.getTodo(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-02-26 13:57:40.753 [http-nio-8080-exec-1] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=null, pageno=null, count=null, docs=null, errorPage=true, message=远程调用异常: 500  on POST request for "http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo": "{"success":false,"data":null,"msg":"Internal Server Error","code":"error.httpStatus.500"}"), timestamp=2026-02-26 13:57:40)
+执行时间：57774ms
+2026-02-26 13:57:51.799 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-26 13:57:52.117 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-02-26 13:57:52.195 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26 13:57:52.206 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-26 13:57:52.219 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-26 13:57:57.610 [main] INFO  com.example.Application - Starting Application using Java 17.0.17 with PID 21904 (D:\project\AI\wechat-push\target\classes started by aiwh1 in D:\project\AI\wechat-push)
+2026-02-26 13:57:57.611 [main] DEBUG com.example.Application - Running with Spring Boot v3.5.9, Spring v6.2.15
+2026-02-26 13:57:57.612 [main] INFO  com.example.Application - The following 1 profile is active: "dev"
+2026-02-26 13:57:58.554 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-26 13:57:58.555 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-26 13:57:58.734 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 165 ms. Found 2 JPA repository interfaces.
+2026-02-26 13:57:58.755 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-26 13:57:58.758 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-26 13:57:58.778 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.repository.TodoItemRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-26 13:57:58.778 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.repository.UserBindRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-26 13:57:58.778 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2026-02-26 13:57:59.437 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-26 13:57:59.455 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-26 13:57:59.457 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-26 13:57:59.457 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.50]
+2026-02-26 13:57:59.567 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-26 13:57:59.568 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1917 ms
+2026-02-26 13:57:59.729 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-26 13:57:59.777 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.39.Final
+2026-02-26 13:57:59.810 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-26 13:58:00.077 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-26 13:58:00.105 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-26 13:58:00.401 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@18a38bba
+2026-02-26 13:58:00.404 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-26 13:58:00.458 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-26 13:58:00.459 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-02-26 13:58:00.489 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-26 13:58:01.542 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-26 13:58:01.615 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26 13:58:02.108 [main] DEBUG c.e.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-02-26 13:58:02.312 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-26 13:58:03.524 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-26 13:58:03.907 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 98327e99-1512-438c-a2d6-bbd3db028eaf
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-26 13:58:03.922 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-26 13:58:04.075 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-02-26 13:58:04.682 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-26 13:58:04.723 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-26 13:58:04.737 [main] INFO  com.example.Application - Started Application in 7.44 seconds (process running for 8.176)
+2026-02-26 13:58:09.023 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26 13:58:09.024 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-26 13:58:09.027 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-02-26 13:58:09.374 [http-nio-8080-exec-1] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 13:58:09.376 [http-nio-8080-exec-1] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 13:58:09.376 [http-nio-8080-exec-1] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 13:58:17.930 [http-nio-8080-exec-1] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用成功
+2026-02-26 13:58:20.555 [http-nio-8080-exec-1] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=null, pageno=null, count=null, docs=null, errorPage=null, message={"pageCount":1,"pageno":1,"count":10,"docs":[{"id":"19c936710e8080c13a86e034c6ea9739","subject":"您提交的流程已被特权人终审通过：测试推送知识库20240311","type":2,"key":"18e2c3fb2aaa35a135a86ac4774bddbc","param1":"19c9366e6b46b60d861a98e4a8ab77c1","param2":null,"appName":null,"modelName":"com.landray.kmss.km.imissive.model.KmImissiveSendMain","level":3,"moduleName":"发文信息（政务版）","moduleName_US":"发文信息（政务版）","moduleName_TW":"发文信息（政务版）","modelId":"18e2c3fb2aaa35a135a86ac4774bddbc","createTime":"2026-02-25 14:05:31","creator":"xushuaiwen","creatorName":"徐帅文","langProps":{"fdName":"徐帅文"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c936710e8080c13a86e034c6ea9739","mobileLink":null,"padLink":null},{"id":"19c403326bfcbb5d929703a4691bdfa0","subject":"【督查督办】关于XXX事项的督办（集团领导已批示，请知悉）","type":2,"key":"sendOptionRead","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd","level":3,"moduleName":"督办事项","moduleName_US":"督办事项","moduleName_TW":"督办事项","modelId":"19c4023978bed92381c7d99430f9342e","createTime":"2026-02-09 10:20:20","creator":"tuhuan","creatorName":"涂欢","langProps":{"fdName":"涂欢"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c403326bfcbb5d929703a4691bdfa0","mobileLink":null,"padLink":null},{"id":"19c31941e5f6ab195b926a94e1098514","subject":"流程管理 内部沟通 请审批【管理员】提交的：测试串行","type":1,"key":"19c31937211a7d579a8fca54f6fa19ef","param1":"19c31941d4e4998ebbff69e411c978ed","param2":"19c31941df50d5b8010034449a7aa5e9","appName":null,"modelName":"com.landray.kmss.km.review.model.KmReviewMain","level":3,"moduleName":"流程管理","moduleName_US":"流程管理","moduleName_TW":"流程管理","modelId":"19c31937211a7d579a8fca54f6fa19ef","createTime":"2026-02-06 14:11:56","creator":"admin","creatorName":"管理员","langProps":{"fdName":"管理员"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c31941e5f6ab195b926a94e1098514","mobileLink":null,"padLink":null},{"id":"19c27ed851ce35aa7ef0bb2440cbb47d","subject":"【督查督办】测试督办（集团领导已批示，请知悉）","type":2,"key":"sendOptionRead","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd","level":3,"moduleName":"督办事项","moduleName_US":"督办事项","moduleName_TW":"督办事项","modelId":"19c2789b28d304e36e513c0433b8b0d3","createTime":"2026-02-04 17:13:23","creator":"tuhuan","creatorName":"涂欢","langProps":{"fdName":"涂欢"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c27ed851ce35aa7ef0bb2440cbb47d","mobileLink":null,"padLink":null},{"id":"19c1c730314ac4590a3bec64d09a1f0a","subject":"请对徐帅文提交的问卷 “测试问卷20260202new”进行作答","type":1,"key":"kmPindagate.notify.titleStart","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.km.pindagate.model.KmPindagateMain","level":3,"moduleName":"网上调查","moduleName_US":"网上调查","moduleName_TW":"网上调查","modelId":"19c1c7252441c2f229d39694f3b86b85","createTime":"2026-02-02 11:43:45","creator":"xushuaiwen","creatorName":"徐帅文","langProps":{"fdName":"徐帅文"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c730314ac4590a3bec64d09a1f0a","mobileLink":null,"padLink":null},{"id":"19c1c71254034fd7c43dd3c48638714e","subject":"请对徐帅文提交的问卷 “测试问卷20260202”进行作答","type":1,"key":"kmPindagate.notify.titleStart","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.km.pindagate.model.KmPindagateMain","level":3,"moduleName":"网上调查","moduleName_US":"网上调查","moduleName_TW":"网上调查","modelId":"19c1c6fe1d73b048a1d913741dbb8bb2","createTime":"2026-02-02 11:41:43","creator":"xushuaiwen","creatorName":"徐帅文","langProps":{"fdName":"徐帅文"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c71254034fd7c43dd3c48638714e","mobileLink":null,"padLink":null},{"id":"19c1c6f139fd4cdf0fad25b4b3d9590d","subject":"请对管理员提交的问卷 “测试问卷”进行作答","type":1,"key":"kmPindagate.notify.titleStart","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.km.pindagate.model.KmPindagateMain","level":3,"moduleName":"网上调查","moduleName_US":"网上调查","moduleName_TW":"网上调查","modelId":"19c1c6314c521cd6702af454ad48d7ca","createTime":"2026-02-02 11:39:27","creator":"admin","creatorName":"管理员","langProps":{"fdName":"管理员"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c6f139fd4cdf0fad25b4b3d9590d","mobileLink":null,"padLink":null},{"id":"19bbf6880bf51d855f44a7d45f383f72","subject":"流程管理 请审批【管理员】提交的：管理员-因公临时出国任务和预算审批申请","type":1,"key":"19bbf6809947b92c6a69acb4546980e5","param1":"19bbf68803d5c033b702eb447dd89783","param2":"19bbf68807fc0201e094e5d46c5a4ccb","appName":null,"modelName":"com.landray.kmss.km.review.model.KmReviewMain","level":3,"moduleName":"流程管理","moduleName_US":"流程管理","moduleName_TW":"流程管理","modelId":"19bbf6809947b92c6a69acb4546980e5","createTime":"2026-01-15 10:07:35","creator":"admin","creatorName":"管理员","langProps":{"fdName":"管理员"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19bbf6880bf51d855f44a7d45f383f72","mobileLink":null,"padLink":null},{"id":"19b9793e5c378c54f2588da4ab0968a2","subject":"您提交的流程已被审批通过，请查阅：测试经办人默认","type":2,"key":"19b54408339a1817b0e77c0452cb8296","param1":"19b9793e41368f7916a541c4c2c9c992","param2":null,"appName":null,"modelName":"com.landray.kmss.km.imissive.model.KmImissiveReceiveMain","level":3,"moduleName":"收文信息（政务版）","moduleName_US":"收文信息（政务版）","moduleName_TW":"收文信息（政务版）","modelId":"19b54408339a1817b0e77c0452cb8296","createTime":"2026-01-07 16:30:10","creator":"xushuaiwen","creatorName":"徐帅文","langProps":{"fdName":"徐帅文"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b9793e5c378c54f2588da4ab0968a2","mobileLink":null,"padLink":null},{"id":"19b92567cb2737b54a5ec8341deb1942","subject":"请对管理员提交的问卷 “测试问卷”进行作答","type":1,"key":"kmPindagate.notify.titleStart","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.km.pindagate.model.KmPindagateMain","level":3,"moduleName":"网上调查","moduleName_US":"网上调查","moduleName_TW":"网上调查","modelId":"19b9253638f4569f564b9f74198a070c","createTime":"2026-01-06 16:05:00","creator":"admin","creatorName":"管理员","langProps":{"fdName":"管理员"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b92567cb2737b54a5ec8341deb1942","mobileLink":null,"padLink":null}]}), timestamp=2026-02-26 13:58:20)
+执行时间：11182ms
+2026-02-26 14:16:45.849 [http-nio-8080-exec-2] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 14:16:45.854 [http-nio-8080-exec-2] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 14:16:45.855 [http-nio-8080-exec-2] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 14:23:14.459 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m43s624ms701µs400ns).
+2026-02-26 14:23:14.471 [http-nio-8080-exec-2] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用成功
+2026-02-26 14:23:14.472 [http-nio-8080-exec-2] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=null, pageno=null, count=null, docs=null, errorPage=null, message={"pageCount":1,"pageno":1,"count":10,"docs":[{"id":"19c936710e8080c13a86e034c6ea9739","subject":"您提交的流程已被特权人终审通过：测试推送知识库20240311","type":2,"key":"18e2c3fb2aaa35a135a86ac4774bddbc","param1":"19c9366e6b46b60d861a98e4a8ab77c1","param2":null,"appName":null,"modelName":"com.landray.kmss.km.imissive.model.KmImissiveSendMain","level":3,"moduleName":"发文信息（政务版）","moduleName_US":"发文信息（政务版）","moduleName_TW":"发文信息（政务版）","modelId":"18e2c3fb2aaa35a135a86ac4774bddbc","createTime":"2026-02-25 14:05:31","creator":"xushuaiwen","creatorName":"徐帅文","langProps":{"fdName":"徐帅文"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c936710e8080c13a86e034c6ea9739","mobileLink":null,"padLink":null},{"id":"19c403326bfcbb5d929703a4691bdfa0","subject":"【督查督办】关于XXX事项的督办（集团领导已批示，请知悉）","type":2,"key":"sendOptionRead","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd","level":3,"moduleName":"督办事项","moduleName_US":"督办事项","moduleName_TW":"督办事项","modelId":"19c4023978bed92381c7d99430f9342e","createTime":"2026-02-09 10:20:20","creator":"tuhuan","creatorName":"涂欢","langProps":{"fdName":"涂欢"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c403326bfcbb5d929703a4691bdfa0","mobileLink":null,"padLink":null},{"id":"19c31941e5f6ab195b926a94e1098514","subject":"流程管理 内部沟通 请审批【管理员】提交的：测试串行","type":1,"key":"19c31937211a7d579a8fca54f6fa19ef","param1":"19c31941d4e4998ebbff69e411c978ed","param2":"19c31941df50d5b8010034449a7aa5e9","appName":null,"modelName":"com.landray.kmss.km.review.model.KmReviewMain","level":3,"moduleName":"流程管理","moduleName_US":"流程管理","moduleName_TW":"流程管理","modelId":"19c31937211a7d579a8fca54f6fa19ef","createTime":"2026-02-06 14:11:56","creator":"admin","creatorName":"管理员","langProps":{"fdName":"管理员"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c31941e5f6ab195b926a94e1098514","mobileLink":null,"padLink":null},{"id":"19c27ed851ce35aa7ef0bb2440cbb47d","subject":"【督查督办】测试督办（集团领导已批示，请知悉）","type":2,"key":"sendOptionRead","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd","level":3,"moduleName":"督办事项","moduleName_US":"督办事项","moduleName_TW":"督办事项","modelId":"19c2789b28d304e36e513c0433b8b0d3","createTime":"2026-02-04 17:13:23","creator":"tuhuan","creatorName":"涂欢","langProps":{"fdName":"涂欢"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c27ed851ce35aa7ef0bb2440cbb47d","mobileLink":null,"padLink":null},{"id":"19c1c730314ac4590a3bec64d09a1f0a","subject":"请对徐帅文提交的问卷 “测试问卷20260202new”进行作答","type":1,"key":"kmPindagate.notify.titleStart","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.km.pindagate.model.KmPindagateMain","level":3,"moduleName":"网上调查","moduleName_US":"网上调查","moduleName_TW":"网上调查","modelId":"19c1c7252441c2f229d39694f3b86b85","createTime":"2026-02-02 11:43:45","creator":"xushuaiwen","creatorName":"徐帅文","langProps":{"fdName":"徐帅文"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c730314ac4590a3bec64d09a1f0a","mobileLink":null,"padLink":null},{"id":"19c1c71254034fd7c43dd3c48638714e","subject":"请对徐帅文提交的问卷 “测试问卷20260202”进行作答","type":1,"key":"kmPindagate.notify.titleStart","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.km.pindagate.model.KmPindagateMain","level":3,"moduleName":"网上调查","moduleName_US":"网上调查","moduleName_TW":"网上调查","modelId":"19c1c6fe1d73b048a1d913741dbb8bb2","createTime":"2026-02-02 11:41:43","creator":"xushuaiwen","creatorName":"徐帅文","langProps":{"fdName":"徐帅文"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c71254034fd7c43dd3c48638714e","mobileLink":null,"padLink":null},{"id":"19c1c6f139fd4cdf0fad25b4b3d9590d","subject":"请对管理员提交的问卷 “测试问卷”进行作答","type":1,"key":"kmPindagate.notify.titleStart","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.km.pindagate.model.KmPindagateMain","level":3,"moduleName":"网上调查","moduleName_US":"网上调查","moduleName_TW":"网上调查","modelId":"19c1c6314c521cd6702af454ad48d7ca","createTime":"2026-02-02 11:39:27","creator":"admin","creatorName":"管理员","langProps":{"fdName":"管理员"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c6f139fd4cdf0fad25b4b3d9590d","mobileLink":null,"padLink":null},{"id":"19bbf6880bf51d855f44a7d45f383f72","subject":"流程管理 请审批【管理员】提交的：管理员-因公临时出国任务和预算审批申请","type":1,"key":"19bbf6809947b92c6a69acb4546980e5","param1":"19bbf68803d5c033b702eb447dd89783","param2":"19bbf68807fc0201e094e5d46c5a4ccb","appName":null,"modelName":"com.landray.kmss.km.review.model.KmReviewMain","level":3,"moduleName":"流程管理","moduleName_US":"流程管理","moduleName_TW":"流程管理","modelId":"19bbf6809947b92c6a69acb4546980e5","createTime":"2026-01-15 10:07:35","creator":"admin","creatorName":"管理员","langProps":{"fdName":"管理员"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19bbf6880bf51d855f44a7d45f383f72","mobileLink":null,"padLink":null},{"id":"19b9793e5c378c54f2588da4ab0968a2","subject":"您提交的流程已被审批通过，请查阅：测试经办人默认","type":2,"key":"19b54408339a1817b0e77c0452cb8296","param1":"19b9793e41368f7916a541c4c2c9c992","param2":null,"appName":null,"modelName":"com.landray.kmss.km.imissive.model.KmImissiveReceiveMain","level":3,"moduleName":"收文信息（政务版）","moduleName_US":"收文信息（政务版）","moduleName_TW":"收文信息（政务版）","modelId":"19b54408339a1817b0e77c0452cb8296","createTime":"2026-01-07 16:30:10","creator":"xushuaiwen","creatorName":"徐帅文","langProps":{"fdName":"徐帅文"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b9793e5c378c54f2588da4ab0968a2","mobileLink":null,"padLink":null},{"id":"19b92567cb2737b54a5ec8341deb1942","subject":"请对管理员提交的问卷 “测试问卷”进行作答","type":1,"key":"kmPindagate.notify.titleStart","param1":null,"param2":null,"appName":null,"modelName":"com.landray.kmss.km.pindagate.model.KmPindagateMain","level":3,"moduleName":"网上调查","moduleName_US":"网上调查","moduleName_TW":"网上调查","modelId":"19b9253638f4569f564b9f74198a070c","createTime":"2026-01-06 16:05:00","creator":"admin","creatorName":"管理员","langProps":{"fdName":"管理员"},"link":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b92567cb2737b54a5ec8341deb1942","mobileLink":null,"padLink":null}]}), timestamp=2026-02-26 14:23:14)
+执行时间：388624ms
+2026-02-26 14:23:17.890 [http-nio-8080-exec-5] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 14:23:17.891 [http-nio-8080-exec-5] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 14:23:17.891 [http-nio-8080-exec-5] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 14:23:18.125 [http-nio-8080-exec-5] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用成功
+2026-02-26 14:23:18.497 [http-nio-8080-exec-5] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=1, pageno=1, count=10, docs=[TodoDoc(id=19c936710e8080c13a86e034c6ea9739, subject=您提交的流程已被特权人终审通过：测试推送知识库20240311, type=2, key=18e2c3fb2aaa35a135a86ac4774bddbc, param1=19c9366e6b46b60d861a98e4a8ab77c1, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveSendMain, modelId=18e2c3fb2aaa35a135a86ac4774bddbc, createTime=2026-02-25 14:05:31, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c936710e8080c13a86e034c6ea9739), TodoDoc(id=19c403326bfcbb5d929703a4691bdfa0, subject=【督查督办】关于XXX事项的督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c4023978bed92381c7d99430f9342e, createTime=2026-02-09 10:20:20, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c403326bfcbb5d929703a4691bdfa0), TodoDoc(id=19c31941e5f6ab195b926a94e1098514, subject=流程管理 内部沟通 请审批【管理员】提交的：测试串行, type=1, key=19c31937211a7d579a8fca54f6fa19ef, param1=19c31941d4e4998ebbff69e411c978ed, param2=19c31941df50d5b8010034449a7aa5e9, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19c31937211a7d579a8fca54f6fa19ef, createTime=2026-02-06 14:11:56, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c31941e5f6ab195b926a94e1098514), TodoDoc(id=19c27ed851ce35aa7ef0bb2440cbb47d, subject=【督查督办】测试督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c2789b28d304e36e513c0433b8b0d3, createTime=2026-02-04 17:13:23, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c27ed851ce35aa7ef0bb2440cbb47d), TodoDoc(id=19c1c730314ac4590a3bec64d09a1f0a, subject=请对徐帅文提交的问卷 “测试问卷20260202new”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c7252441c2f229d39694f3b86b85, createTime=2026-02-02 11:43:45, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c730314ac4590a3bec64d09a1f0a), TodoDoc(id=19c1c71254034fd7c43dd3c48638714e, subject=请对徐帅文提交的问卷 “测试问卷20260202”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6fe1d73b048a1d913741dbb8bb2, createTime=2026-02-02 11:41:43, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c71254034fd7c43dd3c48638714e), TodoDoc(id=19c1c6f139fd4cdf0fad25b4b3d9590d, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6314c521cd6702af454ad48d7ca, createTime=2026-02-02 11:39:27, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c6f139fd4cdf0fad25b4b3d9590d), TodoDoc(id=19bbf6880bf51d855f44a7d45f383f72, subject=流程管理 请审批【管理员】提交的：管理员-因公临时出国任务和预算审批申请, type=1, key=19bbf6809947b92c6a69acb4546980e5, param1=19bbf68803d5c033b702eb447dd89783, param2=19bbf68807fc0201e094e5d46c5a4ccb, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19bbf6809947b92c6a69acb4546980e5, createTime=2026-01-15 10:07:35, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19bbf6880bf51d855f44a7d45f383f72), TodoDoc(id=19b9793e5c378c54f2588da4ab0968a2, subject=您提交的流程已被审批通过，请查阅：测试经办人默认, type=2, key=19b54408339a1817b0e77c0452cb8296, param1=19b9793e41368f7916a541c4c2c9c992, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveReceiveMain, modelId=19b54408339a1817b0e77c0452cb8296, createTime=2026-01-07 16:30:10, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b9793e5c378c54f2588da4ab0968a2), TodoDoc(id=19b92567cb2737b54a5ec8341deb1942, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19b9253638f4569f564b9f74198a070c, createTime=2026-01-06 16:05:00, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b92567cb2737b54a5ec8341deb1942)], errorPage=null, message=null), timestamp=2026-02-26 14:23:18)
+执行时间：608ms
+2026-02-26 14:28:26.562 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-26 14:28:26.867 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-02-26 14:28:27.066 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26 14:28:27.073 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-26 14:28:27.082 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-26 14:28:32.095 [main] INFO  com.example.Application - Starting Application using Java 17.0.17 with PID 27892 (D:\project\AI\wechat-push\target\classes started by aiwh1 in D:\project\AI\wechat-push)
+2026-02-26 14:28:32.097 [main] DEBUG com.example.Application - Running with Spring Boot v3.5.9, Spring v6.2.15
+2026-02-26 14:28:32.098 [main] INFO  com.example.Application - The following 1 profile is active: "dev"
+2026-02-26 14:28:32.865 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-26 14:28:32.867 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-26 14:28:32.987 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 112 ms. Found 2 JPA repository interfaces.
+2026-02-26 14:28:33.003 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-26 14:28:33.004 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-26 14:28:33.023 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.repository.TodoItemRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-26 14:28:33.023 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.repository.UserBindRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-26 14:28:33.023 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2026-02-26 14:28:33.629 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-26 14:28:33.653 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-26 14:28:33.656 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-26 14:28:33.658 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.50]
+2026-02-26 14:28:33.810 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-26 14:28:33.812 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1677 ms
+2026-02-26 14:28:34.011 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-26 14:28:34.075 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.39.Final
+2026-02-26 14:28:34.128 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-26 14:28:34.441 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-26 14:28:34.496 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-26 14:28:34.873 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@53da2aec
+2026-02-26 14:28:34.874 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-26 14:28:34.917 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-26 14:28:34.918 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-02-26 14:28:34.942 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-26 14:28:35.982 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-26 14:28:36.059 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26 14:28:36.541 [main] DEBUG c.e.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-02-26 14:28:36.737 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-26 14:28:37.774 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-26 14:28:38.144 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: ff492b7e-7e88-43a2-b2e1-f9fc47378ecd
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-26 14:28:38.152 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-26 14:28:38.302 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-02-26 14:28:38.942 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-26 14:28:38.978 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-26 14:28:38.993 [main] INFO  com.example.Application - Started Application in 7.202 seconds (process running for 7.911)
+2026-02-26 14:28:52.324 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26 14:28:52.325 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-26 14:28:52.327 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-02-26 14:28:52.727 [http-nio-8080-exec-1] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 14:28:52.729 [http-nio-8080-exec-1] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 14:28:52.730 [http-nio-8080-exec-1] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 14:28:53.101 [http-nio-8080-exec-1] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用成功
+2026-02-26 14:28:53.569 [http-nio-8080-exec-1] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=1, pageno=1, count=10, docs=[TodoDoc(id=19c936710e8080c13a86e034c6ea9739, subject=您提交的流程已被特权人终审通过：测试推送知识库20240311, type=2, key=18e2c3fb2aaa35a135a86ac4774bddbc, param1=19c9366e6b46b60d861a98e4a8ab77c1, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveSendMain, modelId=18e2c3fb2aaa35a135a86ac4774bddbc, createTime=2026-02-25 14:05:31, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c936710e8080c13a86e034c6ea9739), TodoDoc(id=19c403326bfcbb5d929703a4691bdfa0, subject=【督查督办】关于XXX事项的督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c4023978bed92381c7d99430f9342e, createTime=2026-02-09 10:20:20, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c403326bfcbb5d929703a4691bdfa0), TodoDoc(id=19c31941e5f6ab195b926a94e1098514, subject=流程管理 内部沟通 请审批【管理员】提交的：测试串行, type=1, key=19c31937211a7d579a8fca54f6fa19ef, param1=19c31941d4e4998ebbff69e411c978ed, param2=19c31941df50d5b8010034449a7aa5e9, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19c31937211a7d579a8fca54f6fa19ef, createTime=2026-02-06 14:11:56, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c31941e5f6ab195b926a94e1098514), TodoDoc(id=19c27ed851ce35aa7ef0bb2440cbb47d, subject=【督查督办】测试督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c2789b28d304e36e513c0433b8b0d3, createTime=2026-02-04 17:13:23, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c27ed851ce35aa7ef0bb2440cbb47d), TodoDoc(id=19c1c730314ac4590a3bec64d09a1f0a, subject=请对徐帅文提交的问卷 “测试问卷20260202new”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c7252441c2f229d39694f3b86b85, createTime=2026-02-02 11:43:45, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c730314ac4590a3bec64d09a1f0a), TodoDoc(id=19c1c71254034fd7c43dd3c48638714e, subject=请对徐帅文提交的问卷 “测试问卷20260202”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6fe1d73b048a1d913741dbb8bb2, createTime=2026-02-02 11:41:43, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c71254034fd7c43dd3c48638714e), TodoDoc(id=19c1c6f139fd4cdf0fad25b4b3d9590d, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6314c521cd6702af454ad48d7ca, createTime=2026-02-02 11:39:27, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c6f139fd4cdf0fad25b4b3d9590d), TodoDoc(id=19bbf6880bf51d855f44a7d45f383f72, subject=流程管理 请审批【管理员】提交的：管理员-因公临时出国任务和预算审批申请, type=1, key=19bbf6809947b92c6a69acb4546980e5, param1=19bbf68803d5c033b702eb447dd89783, param2=19bbf68807fc0201e094e5d46c5a4ccb, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19bbf6809947b92c6a69acb4546980e5, createTime=2026-01-15 10:07:35, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19bbf6880bf51d855f44a7d45f383f72), TodoDoc(id=19b9793e5c378c54f2588da4ab0968a2, subject=您提交的流程已被审批通过，请查阅：测试经办人默认, type=2, key=19b54408339a1817b0e77c0452cb8296, param1=19b9793e41368f7916a541c4c2c9c992, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveReceiveMain, modelId=19b54408339a1817b0e77c0452cb8296, createTime=2026-01-07 16:30:10, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b9793e5c378c54f2588da4ab0968a2), TodoDoc(id=19b92567cb2737b54a5ec8341deb1942, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19b9253638f4569f564b9f74198a070c, createTime=2026-01-06 16:05:00, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b92567cb2737b54a5ec8341deb1942)], errorPage=null, message=null), timestamp=2026-02-26 14:28:53)
+执行时间：846ms
+2026-02-26 14:29:06.966 [http-nio-8080-exec-3] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 14:29:06.968 [http-nio-8080-exec-3] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 14:29:06.968 [http-nio-8080-exec-3] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 14:29:07.160 [http-nio-8080-exec-3] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用成功
+2026-02-26 14:29:07.162 [http-nio-8080-exec-3] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=1, pageno=1, count=10, docs=[TodoDoc(id=19c936710e8080c13a86e034c6ea9739, subject=您提交的流程已被特权人终审通过：测试推送知识库20240311, type=2, key=18e2c3fb2aaa35a135a86ac4774bddbc, param1=19c9366e6b46b60d861a98e4a8ab77c1, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveSendMain, modelId=18e2c3fb2aaa35a135a86ac4774bddbc, createTime=2026-02-25 14:05:31, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c936710e8080c13a86e034c6ea9739), TodoDoc(id=19c403326bfcbb5d929703a4691bdfa0, subject=【督查督办】关于XXX事项的督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c4023978bed92381c7d99430f9342e, createTime=2026-02-09 10:20:20, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c403326bfcbb5d929703a4691bdfa0), TodoDoc(id=19c31941e5f6ab195b926a94e1098514, subject=流程管理 内部沟通 请审批【管理员】提交的：测试串行, type=1, key=19c31937211a7d579a8fca54f6fa19ef, param1=19c31941d4e4998ebbff69e411c978ed, param2=19c31941df50d5b8010034449a7aa5e9, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19c31937211a7d579a8fca54f6fa19ef, createTime=2026-02-06 14:11:56, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c31941e5f6ab195b926a94e1098514), TodoDoc(id=19c27ed851ce35aa7ef0bb2440cbb47d, subject=【督查督办】测试督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c2789b28d304e36e513c0433b8b0d3, createTime=2026-02-04 17:13:23, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c27ed851ce35aa7ef0bb2440cbb47d), TodoDoc(id=19c1c730314ac4590a3bec64d09a1f0a, subject=请对徐帅文提交的问卷 “测试问卷20260202new”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c7252441c2f229d39694f3b86b85, createTime=2026-02-02 11:43:45, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c730314ac4590a3bec64d09a1f0a), TodoDoc(id=19c1c71254034fd7c43dd3c48638714e, subject=请对徐帅文提交的问卷 “测试问卷20260202”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6fe1d73b048a1d913741dbb8bb2, createTime=2026-02-02 11:41:43, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c71254034fd7c43dd3c48638714e), TodoDoc(id=19c1c6f139fd4cdf0fad25b4b3d9590d, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6314c521cd6702af454ad48d7ca, createTime=2026-02-02 11:39:27, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c6f139fd4cdf0fad25b4b3d9590d), TodoDoc(id=19bbf6880bf51d855f44a7d45f383f72, subject=流程管理 请审批【管理员】提交的：管理员-因公临时出国任务和预算审批申请, type=1, key=19bbf6809947b92c6a69acb4546980e5, param1=19bbf68803d5c033b702eb447dd89783, param2=19bbf68807fc0201e094e5d46c5a4ccb, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19bbf6809947b92c6a69acb4546980e5, createTime=2026-01-15 10:07:35, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19bbf6880bf51d855f44a7d45f383f72), TodoDoc(id=19b9793e5c378c54f2588da4ab0968a2, subject=您提交的流程已被审批通过，请查阅：测试经办人默认, type=2, key=19b54408339a1817b0e77c0452cb8296, param1=19b9793e41368f7916a541c4c2c9c992, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveReceiveMain, modelId=19b54408339a1817b0e77c0452cb8296, createTime=2026-01-07 16:30:10, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b9793e5c378c54f2588da4ab0968a2), TodoDoc(id=19b92567cb2737b54a5ec8341deb1942, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19b9253638f4569f564b9f74198a070c, createTime=2026-01-06 16:05:00, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b92567cb2737b54a5ec8341deb1942)], errorPage=null, message=null), timestamp=2026-02-26 14:29:07)
+执行时间：196ms
+2026-02-26 14:29:07.837 [http-nio-8080-exec-4] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 14:29:07.838 [http-nio-8080-exec-4] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 14:29:07.838 [http-nio-8080-exec-4] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 14:29:08.045 [http-nio-8080-exec-4] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用成功
+2026-02-26 14:29:08.046 [http-nio-8080-exec-4] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=1, pageno=1, count=10, docs=[TodoDoc(id=19c936710e8080c13a86e034c6ea9739, subject=您提交的流程已被特权人终审通过：测试推送知识库20240311, type=2, key=18e2c3fb2aaa35a135a86ac4774bddbc, param1=19c9366e6b46b60d861a98e4a8ab77c1, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveSendMain, modelId=18e2c3fb2aaa35a135a86ac4774bddbc, createTime=2026-02-25 14:05:31, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c936710e8080c13a86e034c6ea9739), TodoDoc(id=19c403326bfcbb5d929703a4691bdfa0, subject=【督查督办】关于XXX事项的督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c4023978bed92381c7d99430f9342e, createTime=2026-02-09 10:20:20, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c403326bfcbb5d929703a4691bdfa0), TodoDoc(id=19c31941e5f6ab195b926a94e1098514, subject=流程管理 内部沟通 请审批【管理员】提交的：测试串行, type=1, key=19c31937211a7d579a8fca54f6fa19ef, param1=19c31941d4e4998ebbff69e411c978ed, param2=19c31941df50d5b8010034449a7aa5e9, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19c31937211a7d579a8fca54f6fa19ef, createTime=2026-02-06 14:11:56, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c31941e5f6ab195b926a94e1098514), TodoDoc(id=19c27ed851ce35aa7ef0bb2440cbb47d, subject=【督查督办】测试督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c2789b28d304e36e513c0433b8b0d3, createTime=2026-02-04 17:13:23, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c27ed851ce35aa7ef0bb2440cbb47d), TodoDoc(id=19c1c730314ac4590a3bec64d09a1f0a, subject=请对徐帅文提交的问卷 “测试问卷20260202new”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c7252441c2f229d39694f3b86b85, createTime=2026-02-02 11:43:45, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c730314ac4590a3bec64d09a1f0a), TodoDoc(id=19c1c71254034fd7c43dd3c48638714e, subject=请对徐帅文提交的问卷 “测试问卷20260202”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6fe1d73b048a1d913741dbb8bb2, createTime=2026-02-02 11:41:43, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c71254034fd7c43dd3c48638714e), TodoDoc(id=19c1c6f139fd4cdf0fad25b4b3d9590d, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6314c521cd6702af454ad48d7ca, createTime=2026-02-02 11:39:27, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c6f139fd4cdf0fad25b4b3d9590d), TodoDoc(id=19bbf6880bf51d855f44a7d45f383f72, subject=流程管理 请审批【管理员】提交的：管理员-因公临时出国任务和预算审批申请, type=1, key=19bbf6809947b92c6a69acb4546980e5, param1=19bbf68803d5c033b702eb447dd89783, param2=19bbf68807fc0201e094e5d46c5a4ccb, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19bbf6809947b92c6a69acb4546980e5, createTime=2026-01-15 10:07:35, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19bbf6880bf51d855f44a7d45f383f72), TodoDoc(id=19b9793e5c378c54f2588da4ab0968a2, subject=您提交的流程已被审批通过，请查阅：测试经办人默认, type=2, key=19b54408339a1817b0e77c0452cb8296, param1=19b9793e41368f7916a541c4c2c9c992, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveReceiveMain, modelId=19b54408339a1817b0e77c0452cb8296, createTime=2026-01-07 16:30:10, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b9793e5c378c54f2588da4ab0968a2), TodoDoc(id=19b92567cb2737b54a5ec8341deb1942, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19b9253638f4569f564b9f74198a070c, createTime=2026-01-06 16:05:00, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b92567cb2737b54a5ec8341deb1942)], errorPage=null, message=null), timestamp=2026-02-26 14:29:08)
+执行时间：209ms
+2026-02-26 14:30:36.908 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-26 14:30:37.192 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-02-26 14:30:37.300 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26 14:30:37.316 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-26 14:30:37.341 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-26 14:30:41.705 [main] INFO  com.example.Application - Starting Application using Java 17.0.17 with PID 38948 (D:\project\AI\wechat-push\target\classes started by aiwh1 in D:\project\AI\wechat-push)
+2026-02-26 14:30:41.708 [main] DEBUG com.example.Application - Running with Spring Boot v3.5.9, Spring v6.2.15
+2026-02-26 14:30:41.708 [main] INFO  com.example.Application - The following 1 profile is active: "dev"
+2026-02-26 14:30:42.637 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-26 14:30:42.641 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-26 14:30:42.857 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 202 ms. Found 2 JPA repository interfaces.
+2026-02-26 14:30:42.878 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-26 14:30:42.881 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-26 14:30:42.913 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.repository.TodoItemRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-26 14:30:42.914 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.repository.UserBindRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-26 14:30:42.914 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2026-02-26 14:30:43.586 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-26 14:30:43.597 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-26 14:30:43.599 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-26 14:30:43.599 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.50]
+2026-02-26 14:30:43.662 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-26 14:30:43.663 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1921 ms
+2026-02-26 14:30:43.947 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-26 14:30:44.021 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.39.Final
+2026-02-26 14:30:44.076 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-26 14:30:44.339 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-26 14:30:44.377 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-26 14:30:44.716 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@18a38bba
+2026-02-26 14:30:44.720 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-26 14:30:44.759 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-26 14:30:44.760 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-02-26 14:30:44.779 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-26 14:30:45.615 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-26 14:30:45.667 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26 14:30:46.045 [main] DEBUG c.e.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-02-26 14:30:46.183 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-26 14:30:47.090 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-26 14:30:47.486 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 1f6e28c1-bc20-4d88-8325-158dd6f463ba
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-26 14:30:47.500 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-26 14:30:47.741 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-02-26 14:30:48.374 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-26 14:30:48.397 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-26 14:30:48.407 [main] INFO  com.example.Application - Started Application in 6.998 seconds (process running for 7.682)
+2026-02-26 14:30:52.408 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26 14:30:52.408 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-26 14:30:52.411 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-02-26 14:30:52.711 [http-nio-8080-exec-1] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 14:30:52.713 [http-nio-8080-exec-1] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 14:30:52.713 [http-nio-8080-exec-1] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 14:30:53.031 [http-nio-8080-exec-1] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用成功
+2026-02-26 14:30:53.364 [http-nio-8080-exec-1] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=1, pageno=1, count=10, docs=[TodoDoc(id=19c936710e8080c13a86e034c6ea9739, subject=您提交的流程已被特权人终审通过：测试推送知识库20240311, type=2, key=18e2c3fb2aaa35a135a86ac4774bddbc, param1=19c9366e6b46b60d861a98e4a8ab77c1, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveSendMain, modelId=18e2c3fb2aaa35a135a86ac4774bddbc, createTime=2026-02-25 14:05:31, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c936710e8080c13a86e034c6ea9739), TodoDoc(id=19c403326bfcbb5d929703a4691bdfa0, subject=【督查督办】关于XXX事项的督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c4023978bed92381c7d99430f9342e, createTime=2026-02-09 10:20:20, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c403326bfcbb5d929703a4691bdfa0), TodoDoc(id=19c31941e5f6ab195b926a94e1098514, subject=流程管理 内部沟通 请审批【管理员】提交的：测试串行, type=1, key=19c31937211a7d579a8fca54f6fa19ef, param1=19c31941d4e4998ebbff69e411c978ed, param2=19c31941df50d5b8010034449a7aa5e9, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19c31937211a7d579a8fca54f6fa19ef, createTime=2026-02-06 14:11:56, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c31941e5f6ab195b926a94e1098514), TodoDoc(id=19c27ed851ce35aa7ef0bb2440cbb47d, subject=【督查督办】测试督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c2789b28d304e36e513c0433b8b0d3, createTime=2026-02-04 17:13:23, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c27ed851ce35aa7ef0bb2440cbb47d), TodoDoc(id=19c1c730314ac4590a3bec64d09a1f0a, subject=请对徐帅文提交的问卷 “测试问卷20260202new”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c7252441c2f229d39694f3b86b85, createTime=2026-02-02 11:43:45, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c730314ac4590a3bec64d09a1f0a), TodoDoc(id=19c1c71254034fd7c43dd3c48638714e, subject=请对徐帅文提交的问卷 “测试问卷20260202”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6fe1d73b048a1d913741dbb8bb2, createTime=2026-02-02 11:41:43, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c71254034fd7c43dd3c48638714e), TodoDoc(id=19c1c6f139fd4cdf0fad25b4b3d9590d, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6314c521cd6702af454ad48d7ca, createTime=2026-02-02 11:39:27, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c6f139fd4cdf0fad25b4b3d9590d), TodoDoc(id=19bbf6880bf51d855f44a7d45f383f72, subject=流程管理 请审批【管理员】提交的：管理员-因公临时出国任务和预算审批申请, type=1, key=19bbf6809947b92c6a69acb4546980e5, param1=19bbf68803d5c033b702eb447dd89783, param2=19bbf68807fc0201e094e5d46c5a4ccb, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19bbf6809947b92c6a69acb4546980e5, createTime=2026-01-15 10:07:35, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19bbf6880bf51d855f44a7d45f383f72), TodoDoc(id=19b9793e5c378c54f2588da4ab0968a2, subject=您提交的流程已被审批通过，请查阅：测试经办人默认, type=2, key=19b54408339a1817b0e77c0452cb8296, param1=19b9793e41368f7916a541c4c2c9c992, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveReceiveMain, modelId=19b54408339a1817b0e77c0452cb8296, createTime=2026-01-07 16:30:10, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b9793e5c378c54f2588da4ab0968a2), TodoDoc(id=19b92567cb2737b54a5ec8341deb1942, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19b9253638f4569f564b9f74198a070c, createTime=2026-01-06 16:05:00, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b92567cb2737b54a5ec8341deb1942)], errorPage=null, message=null), timestamp=2026-02-26 14:30:53)
+执行时间：655ms
+2026-02-26 14:35:14.472 [http-nio-8080-exec-3] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 14:35:14.475 [http-nio-8080-exec-3] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 14:35:14.477 [http-nio-8080-exec-3] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 14:35:14.714 [http-nio-8080-exec-3] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用成功
+2026-02-26 14:35:14.720 [http-nio-8080-exec-3] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=1, pageno=1, count=10, docs=[TodoDoc(id=19c936710e8080c13a86e034c6ea9739, subject=您提交的流程已被特权人终审通过：测试推送知识库20240311, type=2, key=18e2c3fb2aaa35a135a86ac4774bddbc, param1=19c9366e6b46b60d861a98e4a8ab77c1, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveSendMain, modelId=18e2c3fb2aaa35a135a86ac4774bddbc, createTime=2026-02-25 14:05:31, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c936710e8080c13a86e034c6ea9739), TodoDoc(id=19c403326bfcbb5d929703a4691bdfa0, subject=【督查督办】关于XXX事项的督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c4023978bed92381c7d99430f9342e, createTime=2026-02-09 10:20:20, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c403326bfcbb5d929703a4691bdfa0), TodoDoc(id=19c31941e5f6ab195b926a94e1098514, subject=流程管理 内部沟通 请审批【管理员】提交的：测试串行, type=1, key=19c31937211a7d579a8fca54f6fa19ef, param1=19c31941d4e4998ebbff69e411c978ed, param2=19c31941df50d5b8010034449a7aa5e9, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19c31937211a7d579a8fca54f6fa19ef, createTime=2026-02-06 14:11:56, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c31941e5f6ab195b926a94e1098514), TodoDoc(id=19c27ed851ce35aa7ef0bb2440cbb47d, subject=【督查督办】测试督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c2789b28d304e36e513c0433b8b0d3, createTime=2026-02-04 17:13:23, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c27ed851ce35aa7ef0bb2440cbb47d), TodoDoc(id=19c1c730314ac4590a3bec64d09a1f0a, subject=请对徐帅文提交的问卷 “测试问卷20260202new”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c7252441c2f229d39694f3b86b85, createTime=2026-02-02 11:43:45, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c730314ac4590a3bec64d09a1f0a), TodoDoc(id=19c1c71254034fd7c43dd3c48638714e, subject=请对徐帅文提交的问卷 “测试问卷20260202”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6fe1d73b048a1d913741dbb8bb2, createTime=2026-02-02 11:41:43, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c71254034fd7c43dd3c48638714e), TodoDoc(id=19c1c6f139fd4cdf0fad25b4b3d9590d, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6314c521cd6702af454ad48d7ca, createTime=2026-02-02 11:39:27, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c6f139fd4cdf0fad25b4b3d9590d), TodoDoc(id=19bbf6880bf51d855f44a7d45f383f72, subject=流程管理 请审批【管理员】提交的：管理员-因公临时出国任务和预算审批申请, type=1, key=19bbf6809947b92c6a69acb4546980e5, param1=19bbf68803d5c033b702eb447dd89783, param2=19bbf68807fc0201e094e5d46c5a4ccb, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19bbf6809947b92c6a69acb4546980e5, createTime=2026-01-15 10:07:35, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19bbf6880bf51d855f44a7d45f383f72), TodoDoc(id=19b9793e5c378c54f2588da4ab0968a2, subject=您提交的流程已被审批通过，请查阅：测试经办人默认, type=2, key=19b54408339a1817b0e77c0452cb8296, param1=19b9793e41368f7916a541c4c2c9c992, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveReceiveMain, modelId=19b54408339a1817b0e77c0452cb8296, createTime=2026-01-07 16:30:10, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b9793e5c378c54f2588da4ab0968a2), TodoDoc(id=19b92567cb2737b54a5ec8341deb1942, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19b9253638f4569f564b9f74198a070c, createTime=2026-01-06 16:05:00, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b92567cb2737b54a5ec8341deb1942)], errorPage=null, message=null), timestamp=2026-02-26 14:35:14)
+执行时间：248ms
+2026-02-26 14:35:26.432 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-26 14:35:26.874 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-02-26 14:35:26.928 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26 14:35:26.933 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-26 14:35:26.947 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-26 14:35:31.838 [main] INFO  com.example.Application - Starting Application using Java 17.0.17 with PID 38696 (D:\project\AI\wechat-push\target\classes started by aiwh1 in D:\project\AI\wechat-push)
+2026-02-26 14:35:31.840 [main] DEBUG com.example.Application - Running with Spring Boot v3.5.9, Spring v6.2.15
+2026-02-26 14:35:31.841 [main] INFO  com.example.Application - The following 1 profile is active: "dev"
+2026-02-26 14:35:32.887 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-26 14:35:32.889 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-26 14:35:33.023 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 124 ms. Found 2 JPA repository interfaces.
+2026-02-26 14:35:33.040 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-02-26 14:35:33.042 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-02-26 14:35:33.062 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.repository.TodoItemRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-26 14:35:33.063 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.repository.UserBindRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-02-26 14:35:33.063 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2026-02-26 14:35:33.835 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-26 14:35:33.848 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-26 14:35:33.850 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-26 14:35:33.851 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.50]
+2026-02-26 14:35:33.929 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-26 14:35:33.930 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2055 ms
+2026-02-26 14:35:34.147 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-26 14:35:34.222 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.39.Final
+2026-02-26 14:35:34.274 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-26 14:35:34.601 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-26 14:35:34.628 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-26 14:35:34.982 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@18a38bba
+2026-02-26 14:35:34.985 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-26 14:35:35.041 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-26 14:35:35.042 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-02-26 14:35:35.074 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-26 14:35:36.083 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-26 14:35:36.133 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26 14:35:36.462 [main] DEBUG c.e.config.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-02-26 14:35:36.591 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-26 14:35:37.555 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-26 14:35:37.982 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: a0f8ed14-c4c2-4067-840a-302f88795812
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-26 14:35:37.999 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-26 14:35:38.232 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-02-26 14:35:38.867 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-26 14:35:38.888 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-26 14:35:38.898 [main] INFO  com.example.Application - Started Application in 7.362 seconds (process running for 8.057)
+2026-02-26 14:35:45.179 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26 14:35:45.179 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-26 14:35:45.183 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-02-26 14:35:45.412 [http-nio-8080-exec-1] INFO  com.example.aspect.LogAspect - 【接口请求】
+请求URL：http://localhost:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+请求方法：POST
+请求IP：0:0:0:0:0:0:0:1
+处理器：com.example.controller.SysNotifyController.getTodo
+请求参数：{request=TodoRequest(targets=xushuaiwen, type=0)}
+2026-02-26 14:35:45.415 [http-nio-8080-exec-1] INFO  c.e.controller.SysNotifyController - 获取通知列表请求: targets=xushuaiwen, type=0
+2026-02-26 14:35:45.415 [http-nio-8080-exec-1] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用系统通知API: targets=xushuaiwen, type=0
+2026-02-26 14:35:45.734 [http-nio-8080-exec-1] INFO  c.e.s.impl.SysNotifyServiceImpl - 远程调用成功
+2026-02-26 14:35:46.090 [http-nio-8080-exec-1] INFO  com.example.aspect.LogAspect - 【接口响应】
+处理器：com.example.controller.SysNotifyController.getTodo
+响应结果：R(code=0, message=success, data=TodoResponse(pageCount=1, pageno=1, count=10, docs=[TodoDoc(id=19c936710e8080c13a86e034c6ea9739, subject=您提交的流程已被特权人终审通过：测试推送知识库20240311, type=2, key=18e2c3fb2aaa35a135a86ac4774bddbc, param1=19c9366e6b46b60d861a98e4a8ab77c1, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveSendMain, modelId=18e2c3fb2aaa35a135a86ac4774bddbc, createTime=2026-02-25 14:05:31, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c936710e8080c13a86e034c6ea9739), TodoDoc(id=19c403326bfcbb5d929703a4691bdfa0, subject=【督查督办】关于XXX事项的督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c4023978bed92381c7d99430f9342e, createTime=2026-02-09 10:20:20, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c403326bfcbb5d929703a4691bdfa0), TodoDoc(id=19c31941e5f6ab195b926a94e1098514, subject=流程管理 内部沟通 请审批【管理员】提交的：测试串行, type=1, key=19c31937211a7d579a8fca54f6fa19ef, param1=19c31941d4e4998ebbff69e411c978ed, param2=19c31941df50d5b8010034449a7aa5e9, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19c31937211a7d579a8fca54f6fa19ef, createTime=2026-02-06 14:11:56, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c31941e5f6ab195b926a94e1098514), TodoDoc(id=19c27ed851ce35aa7ef0bb2440cbb47d, subject=【督查督办】测试督办（集团领导已批示，请知悉）, type=2, key=sendOptionRead, param1=null, param2=null, appName=null, modelName=com.landray.kmss.smart.supervise.model.SmartSuperviseRwfsd, modelId=19c2789b28d304e36e513c0433b8b0d3, createTime=2026-02-04 17:13:23, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c27ed851ce35aa7ef0bb2440cbb47d), TodoDoc(id=19c1c730314ac4590a3bec64d09a1f0a, subject=请对徐帅文提交的问卷 “测试问卷20260202new”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c7252441c2f229d39694f3b86b85, createTime=2026-02-02 11:43:45, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c730314ac4590a3bec64d09a1f0a), TodoDoc(id=19c1c71254034fd7c43dd3c48638714e, subject=请对徐帅文提交的问卷 “测试问卷20260202”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6fe1d73b048a1d913741dbb8bb2, createTime=2026-02-02 11:41:43, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c71254034fd7c43dd3c48638714e), TodoDoc(id=19c1c6f139fd4cdf0fad25b4b3d9590d, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19c1c6314c521cd6702af454ad48d7ca, createTime=2026-02-02 11:39:27, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19c1c6f139fd4cdf0fad25b4b3d9590d), TodoDoc(id=19bbf6880bf51d855f44a7d45f383f72, subject=流程管理 请审批【管理员】提交的：管理员-因公临时出国任务和预算审批申请, type=1, key=19bbf6809947b92c6a69acb4546980e5, param1=19bbf68803d5c033b702eb447dd89783, param2=19bbf68807fc0201e094e5d46c5a4ccb, appName=null, modelName=com.landray.kmss.km.review.model.KmReviewMain, modelId=19bbf6809947b92c6a69acb4546980e5, createTime=2026-01-15 10:07:35, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19bbf6880bf51d855f44a7d45f383f72), TodoDoc(id=19b9793e5c378c54f2588da4ab0968a2, subject=您提交的流程已被审批通过，请查阅：测试经办人默认, type=2, key=19b54408339a1817b0e77c0452cb8296, param1=19b9793e41368f7916a541c4c2c9c992, param2=null, appName=null, modelName=com.landray.kmss.km.imissive.model.KmImissiveReceiveMain, modelId=19b54408339a1817b0e77c0452cb8296, createTime=2026-01-07 16:30:10, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b9793e5c378c54f2588da4ab0968a2), TodoDoc(id=19b92567cb2737b54a5ec8341deb1942, subject=请对管理员提交的问卷 “测试问卷”进行作答, type=1, key=kmPindagate.notify.titleStart, param1=null, param2=null, appName=null, modelName=com.landray.kmss.km.pindagate.model.KmPindagateMain, modelId=19b9253638f4569f564b9f74198a070c, createTime=2026-01-06 16:05:00, link=/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&fdId=19b92567cb2737b54a5ec8341deb1942)], errorPage=null, message=null), timestamp=2026-02-26 14:35:46)
+执行时间：680ms
+2026-02-26 15:31:00.713 [http-nio-8080-exec-3] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 763 ms
