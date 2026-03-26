@@ -96,7 +96,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
     /**
-     * 构建邮件内容（HTML格式）
+     * 构建邮件内容（HTML格式 - 中英文双语）
      */
     private String buildEmailContent(String captcha, String userId) {
         StringBuilder content = new StringBuilder();
@@ -105,38 +105,73 @@ public class EmailServiceImpl implements EmailService {
         content.append("<head>");
         content.append("<meta charset='UTF-8'>");
         content.append("<style>");
-        content.append("body { font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 1.6; color: #333; }");
+        content.append("body { font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f5f7fa; }");
         content.append(".container { max-width: 600px; margin: 0 auto; padding: 20px; }");
-        content.append(".header { background-color: #1890ff; color: white; padding: 20px; text-align: center; border-radius: 5px 5px 0 0; }");
-        content.append(".content { background-color: #f9f9f9; padding: 30px; border: 1px solid #e8e8e8; }");
-        content.append(".captcha-box { background-color: #fff; border: 2px dashed #1890ff; border-radius: 5px; padding: 20px; text-align: center; margin: 20px 0; }");
-        content.append(".captcha-code { font-size: 32px; font-weight: bold; color: #1890ff; letter-spacing: 5px; }");
-        content.append(".info { color: #666; font-size: 14px; margin-top: 20px; }");
-        content.append(".warning { color: #ff4d4f; font-size: 12px; margin-top: 15px; }");
+        content.append(".header { background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%); color: white; padding: 24px; text-align: center; border-radius: 8px 8px 0 0; }");
+        content.append(".header h2 { margin: 0 0 8px 0; font-size: 22px; }");
+        content.append(".header p { margin: 0; font-size: 14px; opacity: 0.9; }");
+        content.append(".content { background-color: #fff; padding: 30px; border: 1px solid #e8e8e8; }");
+        content.append(".greeting { margin-bottom: 20px; }");
+        content.append(".greeting p { margin: 5px 0; }");
+        content.append(".captcha-box { background: linear-gradient(135deg, #e6f7ff 0%, #f0f5ff 100%); border: 2px dashed #1890ff; border-radius: 8px; padding: 24px; text-align: center; margin: 24px 0; }");
+        content.append(".captcha-code { font-size: 36px; font-weight: bold; color: #1890ff; letter-spacing: 8px; font-family: 'Courier New', monospace; }");
+        content.append(".info { color: #666; font-size: 14px; margin-top: 20px; padding: 16px; background-color: #fafafa; border-radius: 4px; }");
+        content.append(".info p { margin: 8px 0; }");
+        content.append(".warning { color: #ff4d4f; font-size: 13px; margin-top: 16px; padding: 12px; background-color: #fff2f0; border-left: 3px solid #ff4d4f; border-radius: 4px; }");
+        content.append(".warning p { margin: 5px 0; }");
+        content.append(".divider { height: 1px; background: linear-gradient(90deg, transparent, #e8e8e8, transparent); margin: 24px 0; }");
         content.append(".footer { text-align: center; color: #999; font-size: 12px; padding: 20px; }");
+        content.append(".footer p { margin: 5px 0; }");
+        content.append(".lang-en { color: #666; font-style: italic; }");
         content.append("</style>");
         content.append("</head>");
         content.append("<body>");
         content.append("<div class='container'>");
+        
+        // Header - 双语标题
         content.append("<div class='header'>");
         content.append("<h2>用户绑定验证码</h2>");
+        content.append("<p>User Binding Verification Code</p>");
         content.append("</div>");
+        
         content.append("<div class='content'>");
+        
+        // Greeting - 双语问候
+        content.append("<div class='greeting'>");
         content.append("<p>尊敬的用户（工号：<strong>").append(userId).append("</strong>）：</p>");
+        content.append("<p class='lang-en'>Dear User (Employee ID: <strong>").append(userId).append("</strong>):</p>");
+        content.append("</div>");
+        
+        // Introduction - 双语说明
         content.append("<p>您好！您正在进行用户绑定操作，请使用以下验证码完成验证：</p>");
+        content.append("<p class='lang-en'>Hello! You are performing a user binding operation. Please use the following verification code to complete verification:</p>");
+        
+        // Verification Code Box
         content.append("<div class='captcha-box'>");
         content.append("<div class='captcha-code'>").append(captcha).append("</div>");
         content.append("</div>");
+        
+        // Validity Info - 双语有效期
         content.append("<div class='info'>");
-        content.append("<p>验证码有效期为 <strong>5分钟</strong>，请尽快完成验证。</p>");
+        content.append("<p><strong>验证码有效期为 5 分钟，请尽快完成验证。</strong></p>");
+        content.append("<p class='lang-en'>The verification code is valid for <strong>5 minutes</strong>. Please complete the verification as soon as possible.</p>");
         content.append("</div>");
+        
+        // Warning - 双语安全提示
         content.append("<div class='warning'>");
+        content.append("<p><strong>安全提示 / Security Notice：</strong></p>");
         content.append("<p>如非本人操作，请忽略此邮件，您的账号安全不会受到影响。</p>");
+        content.append("<p class='lang-en'>If you did not initiate this request, please ignore this email. Your account security will not be affected.</p>");
         content.append("</div>");
+        
         content.append("</div>");
+        
+        // Footer - 双语页脚
         content.append("<div class='footer'>");
         content.append("<p>此邮件为系统自动发送，请勿直接回复。</p>");
+        content.append("<p class='lang-en'>This is an automated message, please do not reply directly.</p>");
         content.append("</div>");
+        
         content.append("</div>");
         content.append("</body>");
         content.append("</html>");

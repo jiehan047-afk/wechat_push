@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>微信绑定</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 32px 24px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+
+        .logo-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff 0%, #e0e0e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            font-size: 16px;
+            color: #fff;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(102, 126, 234, 0.6);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .captcha-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .captcha-row input {
+            flex: 1;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            width: 100%;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            white-space: nowrap;
+            min-width: 110px;
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 13px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s ease;
+        }
+
+        .success-message {
+            color: #51cf66;
+            font-size: 13px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+
+        .loading-spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        .btn.loading .loading-spinner {
+            display: block;
+        }
+
+        .btn.loading .btn-text {
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .step {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .step.active {
+            background: #667eea;
+            box-shadow: 0 0 12px rgba(102, 126, 234, 0.6);
+        }
+
+        .step.completed {
+            background: #51cf66;
+        }
+
+        .email-hint {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 6px;
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 24px 0;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 20px;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.success {
+            background: rgba(81, 207, 102, 0.9);
+        }
+
+        .toast.error {
+            background: rgba(255, 107, 107, 0.9);
+        }
+
+        .countdown {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* 隐藏状态 */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <h1>账号绑定</h1>
+                <p class="subtitle">绑定您的工号以接收消息通知</p>
+            </div>
+
+            <div class="step-indicator">
+                <div class="step active" id="step1"></div>
+                <div class="step" id="step2"></div>
+                <div class="step" id="step3"></div>
+            </div>
+
+            <!-- 步骤1: 微信授权 -->
+            <div id="authStep">
+                <div class="form-group">
+                    <label>微信授权</label>
+                    <p class="subtitle" style="margin-bottom: 16px;">请先完成微信授权以获取您的身份信息</p>
+                    <button class="btn btn-primary" id="authBtn" onclick="startWxAuth()">
+                        <span class="btn-text">微信授权登录</span>
+                        <div class="loading-spinner"></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 步骤2: 输入工号和验证码 -->
+            <div id="bindStep" class="hidden">
+                <div class="form-group">
+                    <label for="userId">工号</label>
+                    <input type="text" id="userId" placeholder="请输入您的工号" maxlength="20">
+                    <div class="error-message" id="userIdError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="captcha">验证码</label>
+                    <div class="captcha-row">
+                        <input type="text" id="captcha" placeholder="6位验证码" maxlength="6">
+                        <button class="btn btn-secondary" id="sendCaptchaBtn" onclick="sendCaptcha()">
+                            <span class="btn-text">发送验证码</span>
+                            <div class="loading-spinner"></div>
+                        </button>
+                    </div>
+                    <div class="email-hint" id="emailHint"></div>
+                    <div class="error-message" id="captchaError"></div>
+                    <div class="success-message" id="captchaSuccess"></div>
+                </div>
+
+                <button class="btn btn-primary" id="bindBtn" onclick="bindUser()">
+                    <span class="btn-text">确认绑定</span>
+                    <div class="loading-spinner"></div>
+                </button>
+            </div>
+
+            <!-- 步骤3: 绑定成功 -->
+            <div id="successStep" class="hidden">
+                <div style="text-align: center; padding: 20px 0;">
+                    <div class="logo-icon" style="margin-bottom: 20px; background: linear-gradient(135deg, #51cf66 0%, #40c057 100%); box-shadow: 0 8px 24px rgba(81, 207, 102, 0.4);">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <h2 style="font-size: 20px; margin-bottom: 8px;">绑定成功</h2>
+                    <p class="subtitle" id="bindSuccessText">您已成功绑定，可以接收消息通知了</p>
+                </div>
+            </div>
+
+            <div class="footer-text">
+                绑定后可通过微信接收待办消息提醒
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // 全局状态
+        let openId = null;
+        let countdown = 0;
+        let countdownTimer = null;
+
+        // API基础路径
+        const API_BASE = '/api/user-bind';
+
+        // 页面加载时检查URL参数
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const state = urlParams.get('state');
+            
+            if (code) {
+                // 微信授权回调
+                handleWxCallback(code, state);
+            } else {
+                // 检查本地存储的openId
+                const storedOpenId = localStorage.getItem('wx_openId');
+                if (storedOpenId) {
+                    openId = storedOpenId;
+                    showBindStep();
+                }
+            }
+        });
+
+        // 开始微信授权
+        function startWxAuth() {
+            const btn = document.getElementById('authBtn');
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            const redirectUri = encodeURIComponent(window.location.origin + window.location.pathname);
+            
+            fetch(`${API_BASE}/wx-auth-url?redirectUri=${redirectUri}&state=bind`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.code === 0 && data.data.authUrl) {
+                        window.location.href = data.data.authUrl;
+                    } else {
+                        showToast('获取授权链接失败', 'error');
+                        btn.classList.remove('loading');
+                        btn.disabled = false;
+                    }
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    showToast('网络错误，请重试', 'error');
+                    btn.classList.remove('loading');
+                    btn.disabled = false;
+                });
+        }
+
+        // 处理微信授权回调
+        function handleWxCallback(code, state) {
+            showToast('正在获取授权信息...', 'success');
+            
+            fetch(`${API_BASE}/wx-callback?code=${code}&state=${state}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.code === 0 && data.data.openId) {
+                        openId = data.data.openId;
+                        localStorage.setItem('wx_openId', openId);
+                        
+                        // 清除URL中的code参数
+                        window.history.replaceState({}, document.title, window.location.pathname);
+                        
+                        showBindStep();
+                        showToast('授权成功', 'success');
+                    } else {
+                        showToast('授权失败: ' + (data.message || '未知错误'), 'error');
+                        showAuthStep();
+                    }
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    showToast('网络错误，请重试', 'error');
+                    showAuthStep();
+                });
+        }
+
+        // 发送验证码
+        function sendCaptcha() {
+            const userId = document.getElementById('userId').value.trim();
+            const userIdError = document.getElementById('userIdError');
+            const btn = document.getElementById('sendCaptchaBtn');
+
+            // 验证工号
+            if (!userId) {
+                userIdError.textContent = '请输入工号';
+                userIdError.classList.add('show');
+                return;
+            }
+            userIdError.classList.remove('show');
+
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            fetch(`${API_BASE}/send-captcha`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    userId: userId,
+                    openId: openId 
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                btn.classList.remove('loading');
+                
+                if (data.code === 0) {
+                    document.getElementById('emailHint').textContent = 
+                        '验证码已发送至: ' + data.data.email;
+                    document.getElementById('captchaSuccess').textContent = 
+                        '验证码已发送，5分钟内有效';
+                    document.getElementById('captchaSuccess').classList.add('show');
+                    document.getElementById('captchaError').classList.remove('show');
+                    
+                    // 开始倒计时
+                    startCountdown(60);
+                    showToast('验证码已发送', 'success');
+                } else {
+                    document.getElementById('captchaError').textContent = 
+                        data.message || '发送失败';
+                    document.getElementById('captchaError').classList.add('show');
+                    btn.disabled = false;
+                }
+            })
+            .catch(err => {
+                console.error('Error:', err);
+                btn.classList.remove('loading');
+                btn.disabled = false;
+                showToast('网络错误，请重试', 'error');
+            });
+        }
+
+        // 倒计时
+        function startCountdown(seconds) {
+            countdown = seconds;
+            const btn = document.getElementById('sendCaptchaBtn');
+            btn.disabled = true;
+
+            const updateBtn = () => {
+                const btnText = btn.querySelector('.btn-text');
+                if (countdown > 0) {
+                    btnText.textContent = countdown + 's';
+                    countdown--;
+                } else {
+                    btnText.textContent = '发送验证码';
+                    btn.disabled = false;
+                    clearInterval(countdownTimer);
+                }
+            };
+
+            updateBtn();
+            countdownTimer = setInterval(updateBtn, 1000);
+        }
+
+        // 绑定用户
+        function bindUser() {
+            const userId = document.getElementById('userId').value.trim();
+            const captcha = document.getElementById('captcha').value.trim();
+            const btn = document.getElementById('bindBtn');
+
+            // 验证
+            let hasError = false;
+            
+            if (!userId) {
+                document.getElementById('userIdError').textContent = '请输入工号';
+                document.getElementById('userIdError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('userIdError').classList.remove('show');
+            }
+
+            if (!captcha || captcha.length !== 6) {
+                document.getElementById('captchaError').textContent = '请输入6位验证码';
+                document.getElementById('captchaError').classList.add('show');
+                hasError = true;
+            } else {
+                document.getElementById('captchaError').classList.remove('show');
+            }
+
+            if (hasError) return;
+
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            fetch(`${API_BASE}/bind-with-captcha`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId: userId,
+                    openId: openId,
+                    captcha: captcha
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                btn.classList.remove('loading');
+                
+                if (data.code === 0) {
+                    showSuccessStep(userId);
+                    showToast('绑定成功！', 'success');
+                } else {
+                    document.getElementById('captchaError').textContent = 
+                        data.message || '绑定失败';
+                    document.getElementById('captchaError').classList.add('show');
+                    btn.disabled = false;
+                }
+            })
+            .catch(err => {
+                console.error('Error:', err);
+                btn.classList.remove('loading');
+                btn.disabled = false;
+                showToast('网络错误，请重试', 'error');
+            });
+        }
+
+        // 切换到授权步骤
+        function showAuthStep() {
+            document.getElementById('authStep').classList.remove('hidden');
+            document.getElementById('bindStep').classList.add('hidden');
+            document.getElementById('successStep').classList.add('hidden');
+            updateSteps(1);
+        }
+
+        // 切换到绑定步骤
+        function showBindStep() {
+            document.getElementById('authStep').classList.add('hidden');
+            document.getElementById('bindStep').classList.remove('hidden');
+            document.getElementById('successStep').classList.add('hidden');
+            updateSteps(2);
+        }
+
+        // 切换到成功步骤
+        function showSuccessStep(userId) {
+            document.getElementById('authStep').classList.add('hidden');
+            document.getElementById('bindStep').classList.add('hidden');
+            document.getElementById('successStep').classList.remove('hidden');
+            document.getElementById('bindSuccessText').textContent = 
+                `工号 ${userId} 已成功绑定`;
+            updateSteps(3);
+        }
+
+        // 更新步骤指示器
+        function updateSteps(currentStep) {
+            for (let i = 1; i <= 3; i++) {
+                const step = document.getElementById('step' + i);
+                step.classList.remove('active', 'completed');
+                if (i < currentStep) {
+                    step.classList.add('completed');
+                } else if (i === currentStep) {
+                    step.classList.add('active');
+                }
+            }
+        }
+
+        // 显示Toast提示
+        function showToast(message, type) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast ' + type + ' show';
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

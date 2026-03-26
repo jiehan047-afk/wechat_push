@@ -41,8 +41,8 @@ spring:
   mail:
     host: smtp.smart.org.cn
     port: 465
-    username: ${MAIL_USERNAME}
-    password: ${MAIL_PASSWORD}
+    username: auth-noreply@smart.org.cn
+    password: i03GxjizwrIQPm4a
     properties:
       mail:
         smtp:
@@ -101,5 +101,5 @@ logging:
 # 验证码邮件配置
 captcha:
   email:
-    from: ${MAIL_FROM:noreply@smart.org.cn}
+    from: auth-noreply@smart.org.cn
     subject: 【系统通知】绑定验证码

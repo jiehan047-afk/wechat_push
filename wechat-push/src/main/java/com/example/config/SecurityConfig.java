@@ -38,7 +38,8 @@ public class SecurityConfig {
                                 .requestMatchers("/swagger-ui/**").permitAll() // Swagger UI
                                 .requestMatchers("/login.html").permitAll() // 登录页面
                                 .requestMatchers("/todo.html").permitAll() // 待办页面
-//                                .requestMatchers("/**").permitAll() // 静态资源
+                                .requestMatchers("/bind.html").permitAll() // 绑定页面
+                                .requestMatchers("/*.css", "/*.js", "/*.png", "/*.jpg", "/*.ico").permitAll() // 静态资源
                                 // 其他所有端点需要认证
                                 .anyRequest().authenticated()
                 )
