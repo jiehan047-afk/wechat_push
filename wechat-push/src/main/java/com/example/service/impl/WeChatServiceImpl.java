@@ -3,13 +3,18 @@ package com.example.service.impl;
 import com.example.constant.Constant;
 import com.example.dto.TemplateData;
 import com.example.service.WeChatService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -80,6 +85,8 @@ public class WeChatServiceImpl implements WeChatService {
         }
     }
     
+    private final ObjectMapper objectMapper = new ObjectMapper();
+    
     /**
      * 发送微信模板消息
      * @param openId 微信openid
@@ -94,15 +101,24 @@ public class WeChatServiceImpl implements WeChatService {
             String accessToken = getAccessToken();
             String url = String.format(Constant.WeChat.WX_SEND_TEMPLATE_MESSAGE_URL, accessToken);
             
-            Map<String, Object> requestBody = Map.of(
-                "touser", openId,
-                "template_id", templateId,
-                "data", templateData
-            );
+            // 构建请求体
+            Map<String, Object> requestBody = new HashMap<>();
+            requestBody.put("touser", openId);
+            requestBody.put("template_id", templateId);
+            requestBody.put("data", templateData);
             
-            Map<String, Object> response = restTemplate.postForObject(url, requestBody, Map.class);
+            // 设置请求头
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
             
-            if (response != null && Constant.WeChat.SUCCESS_CODE.equals(response.get(Constant.WeChat.ERROR_CODE_KEY))) {
+            String jsonBody = objectMapper.writeValueAsString(requestBody);
+            HttpEntity<String> requestEntity = new HttpEntity<>(jsonBody, headers);
+            
+            logger.info("发送模板消息请求体: {}", jsonBody);
+            
+            Map<String, Object> response = restTemplate.postForObject(url, requestEntity, Map.class);
+            
+            if (Constant.WeChat.SUCCESS_CODE.equals(response.get(Constant.WeChat.ERROR_CODE_KEY).toString())) {
                 logger.info("发送微信模板消息成功");
                 return true;
             } else {
