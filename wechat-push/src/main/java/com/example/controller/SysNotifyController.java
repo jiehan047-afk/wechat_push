@@ -67,18 +67,18 @@ public class SysNotifyController {
     }
 
 
-    @PostMapping("/smartDingdingDetailRestService/sendMsg")
-    @Operation(summary = "获取钉钉详情", description = "根据任务ID获取钉钉详情")
-    public R<Void> getDingdingDetail(){
-
-        // 构建模板消息数据
-        Map<String, TemplateData> templateData = new HashMap<>();
-        templateData.put("thing11", new TemplateData("ceshi", "#173177"));
-        templateData.put("thing9", new TemplateData("Davishi", "#173177"));
-        templateData.put("time3", new TemplateData("2026-03-25", "#173177"));
-        // 调用服务层处理业务逻辑
-        boolean response = weChatService.sendTemplateMessage("MrCZq4VwC2yACNJCjetleQ",templateData);
-        System.out.println( response);
-        return R.success();
-    }
+//    @PostMapping("/smartDingdingDetailRestService/sendMsg")
+//    @Operation(summary = "获取钉钉详情", description = "根据任务ID获取钉钉详情")
+//    public R<Void> getDingdingDetail(){
+//
+//        // 构建模板消息数据
+//        Map<String, TemplateData> templateData = new HashMap<>();
+//        templateData.put("thing11", new TemplateData("ceshi", "#173177"));
+//        templateData.put("thing9", new TemplateData("Davishi", "#173177"));
+//        templateData.put("time3", new TemplateData("2026-03-25", "#173177"));
+//        // 调用服务层处理业务逻辑
+//        boolean response = weChatService.sendTemplateMessage("MrCZq4VwC2yACNJCjetleQ",templateData);
+//        System.out.println( response);
+//        return R.success();
+//    }
 }
