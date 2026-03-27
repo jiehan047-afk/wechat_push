@@ -108,3 +108,7 @@ captcha:
   email:
     from: auth-noreply@smart.org.cn
     subject: 【系统通知】绑定验证码
+
+# CORS跨域配置 - 生产环境只允许外网域名
+cors:
+  allowed-origins: http://task.smart.org.cn

@@ -3,6 +3,7 @@ package com.example.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -25,8 +26,8 @@ public class SecurityConfig {
         http
                 // 禁用CSRF保护（对于API接口通常不需要）
                 .csrf(AbstractHttpConfigurer::disable)
-                // 允许跨域请求
-                .cors(AbstractHttpConfigurer::disable)
+                // 启用CORS（使用CorsConfig中定义的配置）
+                .cors(Customizer.withDefaults())
                 // 配置授权规则
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
