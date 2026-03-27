@@ -53,7 +53,7 @@ public class CaptchaServiceImpl implements CaptchaService {
 
         // 4. 存入Redis
         String codeKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_CODE, userId);
-        String bindKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_BIND, userId);
+//        String bindKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_BIND, userId);
 
         redisTemplate.opsForValue().set(codeKey, captcha, 
                 Constant.Captcha.CAPTCHA_EXPIRE_MINUTES, TimeUnit.MINUTES);
@@ -61,10 +61,10 @@ public class CaptchaServiceImpl implements CaptchaService {
                 Constant.Captcha.CAPTCHA_LIMIT_SECONDS, TimeUnit.SECONDS);
 
         // 暂存openId（如果提供）
-        if (openId != null && !openId.isEmpty()) {
-            redisTemplate.opsForValue().set(bindKey, openId, 
-                    Constant.Captcha.CAPTCHA_EXPIRE_MINUTES, TimeUnit.MINUTES);
-        }
+//        if (openId != null && !openId.isEmpty()) {
+//            redisTemplate.opsForValue().set(bindKey, openId,
+//                    Constant.Captcha.CAPTCHA_EXPIRE_MINUTES, TimeUnit.MINUTES);
+//        }
 
         logger.info("验证码已生成并存入Redis: userId={}, captcha={}", userId, captcha);
 
@@ -74,7 +74,7 @@ public class CaptchaServiceImpl implements CaptchaService {
             // 发送失败，清除Redis中的验证码
             redisTemplate.delete(codeKey);
             redisTemplate.delete(limitKey);
-            redisTemplate.delete(bindKey);
+//            redisTemplate.delete(bindKey);
             throw new RuntimeException("验证码发送失败，请稍后重试");
         }
 

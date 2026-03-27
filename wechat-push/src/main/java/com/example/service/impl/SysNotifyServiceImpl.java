@@ -31,6 +31,9 @@ public class SysNotifyServiceImpl implements SysNotifyService {
     @Value("${sys-notify.basic-auth-token}")
     private String basicAuthToken;
 
+    @Value("${sys-notify.basic-auth-token-detail}")
+    private String basicAuthDetailToken;
+
     @Value("${sys-notify.dingding-detail-url}")
     private String dingdingDetailUrl;
 
@@ -94,7 +97,7 @@ public class SysNotifyServiceImpl implements SysNotifyService {
         // 创建请求头
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("Authorization", "Basic " + basicAuthToken);
+        headers.set("Authorization", "Basic " + basicAuthDetailToken);
 
         // 创建请求体
         Map<String, Object> requestBody = new HashMap<>();

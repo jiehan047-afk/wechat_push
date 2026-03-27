@@ -1,11 +1,9 @@
 package com.example.controller;
 
 import com.example.common.R;
-import com.example.dto.DingdingDetailRequest;
-import com.example.dto.DingdingDetailResponse;
-import com.example.dto.TodoRequest;
-import com.example.dto.TodoResponse;
+import com.example.dto.*;
 import com.example.service.SysNotifyService;
+import com.example.service.WeChatService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -13,6 +11,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 系统通知控制器
@@ -26,6 +28,9 @@ public class SysNotifyController {
 
     @Autowired
     private SysNotifyService sysNotifyService;
+
+    @Autowired
+    private WeChatService weChatService;
 
     /**
      * 获取待办/已办通知列表
@@ -59,5 +64,21 @@ public class SysNotifyController {
         DingdingDetailResponse response = sysNotifyService.getDingdingDetail(request.getTaskId());
         
         return R.success(response);
+    }
+
+
+    @PostMapping("/smartDingdingDetailRestService/sendMsg")
+    @Operation(summary = "获取钉钉详情", description = "根据任务ID获取钉钉详情")
+    public R<Void> getDingdingDetail(){
+
+        // 构建模板消息数据
+        Map<String, TemplateData> templateData = new HashMap<>();
+        templateData.put("thing11", new TemplateData("ceshi", "#173177"));
+        templateData.put("thing9", new TemplateData("Davishi", "#173177"));
+        templateData.put("time3", new TemplateData("2026-03-25", "#173177"));
+        // 调用服务层处理业务逻辑
+        boolean response = weChatService.sendTemplateMessage("MrCZq4VwC2yACNJCjetleQ",templateData);
+        System.out.println( response);
+        return R.success();
     }
 }

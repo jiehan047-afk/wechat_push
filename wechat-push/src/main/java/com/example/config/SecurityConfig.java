@@ -40,6 +40,7 @@ public class SecurityConfig {
                                 .requestMatchers("/todo.html").permitAll() // 待办页面
                                 .requestMatchers("/bind.html").permitAll() // 绑定页面
                                 .requestMatchers("/*.css", "/*.js", "/*.png", "/*.jpg", "/*.ico").permitAll() // 静态资源
+                                .requestMatchers("/favicon.ico").permitAll() // favicon 图标
                                 // 其他所有端点需要认证
                                 .anyRequest().authenticated()
                 )

@@ -28,16 +28,20 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
   data:
     redis:
-      host: localhost
+      host: 10.1.16.60
+#      host: localhost
       port: 6379
       database: 0
+      password: "Landray@2026"
+      timeout: 30000
       jedis:
         pool:
           max-active: 8
           max-idle: 8
           min-idle: 0
 
-# 邮件配置
+
+  # 邮件配置
   mail:
     host: smtp.smart.org.cn
     port: 465
@@ -75,6 +79,7 @@ wechat:
 sys-notify:
   api-url: http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
   basic-auth-token: cmVzdC1ub3RpZnk6eWt5MTIz
+  basic-auth-token-detail: c21hcnQtZGQ6U21hcnRAMjAyNmRk
   dingding-detail-url: https://portal.smart.org.cn/api/smart-dingding/smartDingdingDetailRestService/dingdingDetail
 
 # 线程池配置
