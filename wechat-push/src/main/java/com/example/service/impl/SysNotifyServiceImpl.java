@@ -67,7 +67,7 @@ public class SysNotifyServiceImpl implements SysNotifyService {
 
             if (responseEntity.getStatusCode() == HttpStatus.OK) {
                 logger.info("远程调用成功");
-                return JSON.parseObject(responseEntity.getBody().getMessage().toString(), TodoResponse.class);
+                return JSON.parseObject(responseEntity.getBody().getMessage(), TodoResponse.class);
             } else {
                 logger.error("远程调用失败，状态码: {}", responseEntity.getStatusCode());
                 return createErrorResponse("远程调用失败");

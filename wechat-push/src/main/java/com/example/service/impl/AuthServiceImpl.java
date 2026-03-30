@@ -31,22 +31,21 @@ public class AuthServiceImpl implements AuthService {
     public LoginResponse login(String userId) {
         logger.info("用户登录: {}", userId);
 
-        // 验证用户工号（这里简化处理，假设所有工号都有效）
+        // 验证用户工号
         if (userId == null || userId.trim().isEmpty()) {
             throw new IllegalArgumentException("用户工号不能为空");
         }
 
-        // 检查用户是否已绑定微信openid
-        String openId = userBindService.findByUserId(userId)
-                .map(UserBind::getOpenId)
-                .orElse(null);
+        // 检查用户是否已绑定微信（只允许已绑定用户登录）
+        UserBind userBind = userBindService.findByUserId(userId)
+                .orElseThrow(() -> new IllegalArgumentException("用户未绑定，请先通过邮箱绑定工号"));
+
+        String openId = userBind.getOpenId();
 
         // 生成JWT token
         Map<String, Object> claims = new HashMap<>();
         claims.put("userId", userId);
-        if (openId != null) {
-            claims.put("openId", openId);
-        }
+        claims.put("openId", openId);
 
         String token = jwtUtil.generateToken(claims, userId);
 

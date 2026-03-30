@@ -361,11 +361,11 @@
             document.getElementById(emptyId).style.display = 'none';
             
             // 构造请求参数
-            const targets = `{"LoginName":"${userId}"}`;
+            // const targets = `{"LoginName":"${userId}"}`;
             
             // 调用接口
             axios.post('/api/sys-notify/sysNotifyTodoRestService/getTodo', {
-                targets: targets,
+                targets: userId,
                 type: type
             }, {
                 headers: {
@@ -374,7 +374,7 @@
                 }
             })
             .then(response => {
-                if (response.data.code === 200) {
+                if (response.data.code === 0) {
                     const data = response.data.data;
                     if (data.docs && data.docs.length > 0) {
                         renderTodoList(data.docs, containerId);
@@ -452,11 +452,14 @@
                 // 加载待办列表
                 getTodoList(null, 'todoList', 'todoLoading', 'todoEmpty');
                 
-                // 监听标签页切换
+                // 监听标签页切换，每次切换都重新加载数据
                 const tabEl = document.getElementById('myTab');
                 tabEl.addEventListener('shown.bs.tab', function(event) {
                     const tabId = event.target.getAttribute('aria-controls');
-                    if (tabId === 'done' && document.getElementById('doneList').style.display === 'none') {
+                    if (tabId === 'todo') {
+                        // 加载待办列表
+                        getTodoList(null, 'todoList', 'todoLoading', 'todoEmpty');
+                    } else if (tabId === 'done') {
                         // 加载已办列表
                         getTodoList(3, 'doneList', 'doneLoading', 'doneEmpty');
                     }

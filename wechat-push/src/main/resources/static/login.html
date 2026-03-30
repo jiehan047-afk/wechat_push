@@ -179,7 +179,7 @@
     <div class="login-container">
         <div class="login-header">
             <h2 class="login-title">系统登录</h2>
-            <p class="login-subtitle">请输入您的工号进行登录</p>
+            <p class="login-subtitle">请输入已绑定的工号进行登录（需先通过微信扫码绑定）</p>
         </div>
         <form id="loginForm">
             <div class="form-group">
@@ -234,7 +234,9 @@
             })
             .catch(error => {
                 console.error('登录失败:', error);
-                errorMessage.textContent = '登录失败，请稍后重试';
+                // 优先显示后端返回的错误信息
+                const msg = error.response?.data?.message || '登录失败，请稍后重试';
+                errorMessage.textContent = msg;
                 errorMessage.style.display = 'block';
             })
             .finally(() => {
