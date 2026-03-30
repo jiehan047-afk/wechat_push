@@ -1,5 +1,6 @@
 package com.example.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.example.constant.Constant;
 import com.example.dto.TemplateData;
 import com.example.service.WeChatService;
@@ -11,11 +12,13 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -152,9 +155,13 @@ public class WeChatServiceImpl implements WeChatService {
     public String getOpenIdByCode(String code) {
         logger.info("开始根据code获取openid: {}", code);
         String url = String.format(Constant.WeChat.WX_OAUTH2_ACCESS_TOKEN_URL, appId, appSecret, code);
-        Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+
+        // 1. 用 String 接收，不要用 Map
+        ResponseEntity<String> result = restTemplate.getForEntity(url, String.class);
+        String body = result.getBody();
+        Map<String, Object> response = JSON.parseObject(body);
         
-        if (response != null && response.containsKey(Constant.WeChat.OPENID_KEY)) {
+        if (Objects.nonNull(response) && response.containsKey(Constant.WeChat.OPENID_KEY)) {
             String openId = (String) response.get(Constant.WeChat.OPENID_KEY);
             logger.info("获取openid成功: {}", openId);
             return openId;

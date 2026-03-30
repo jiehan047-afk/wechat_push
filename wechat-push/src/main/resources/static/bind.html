@@ -491,7 +491,15 @@
                     openId: openId 
                 })
             })
-            .then(res => res.json())
+            .then(res => {
+                // 先检查HTTP状态码
+                if (!res.ok) {
+                    return res.json().then(data => {
+                        throw new Error(data.message || '请求失败');
+                    });
+                }
+                return res.json();
+            })
             .then(data => {
                 btn.classList.remove('loading');
                 
@@ -517,7 +525,9 @@
                 console.error('Error:', err);
                 btn.classList.remove('loading');
                 btn.disabled = false;
-                showToast('网络错误，请重试', 'error');
+                document.getElementById('captchaError').textContent = err.message || '网络错误，请重试';
+                document.getElementById('captchaError').classList.add('show');
+                showToast(err.message || '网络错误，请重试', 'error');
             });
         }
 
@@ -525,6 +535,9 @@
         function startCountdown(seconds) {
             countdown = seconds;
             const btn = document.getElementById('sendCaptchaBtn');
+            
+            // 确保移除loading状态
+            btn.classList.remove('loading');
             btn.disabled = true;
 
             const updateBtn = () => {
