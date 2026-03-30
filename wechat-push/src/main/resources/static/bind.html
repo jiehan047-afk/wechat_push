@@ -420,19 +420,18 @@
             const redirectUri = encodeURIComponent(window.location.origin + window.location.pathname);
             
             fetch(`${API_BASE}/wx-auth-url?redirectUri=${redirectUri}&state=bind`)
-                .then(res => res.json())
+                .then(handleResponse)
                 .then(data => {
                     if (data.code === 0 && data.data.authUrl) {
                         window.location.href = data.data.authUrl;
                     } else {
-                        showToast('获取授权链接失败', 'error');
+                        showToast(data.message || '获取授权链接失败', 'error');
                         btn.classList.remove('loading');
                         btn.disabled = false;
                     }
                 })
                 .catch(err => {
-                    console.error('Error:', err);
-                    showToast('网络错误，请重试', 'error');
+                    handleError(err, '获取授权链接失败');
                     btn.classList.remove('loading');
                     btn.disabled = false;
                 });
@@ -443,7 +442,7 @@
             showToast('正在获取授权信息...', 'success');
             
             fetch(`${API_BASE}/wx-callback?code=${code}&state=${state}`)
-                .then(res => res.json())
+                .then(handleResponse)
                 .then(data => {
                     if (data.code === 0 && data.data.openId) {
                         openId = data.data.openId;
@@ -460,8 +459,7 @@
                     }
                 })
                 .catch(err => {
-                    console.error('Error:', err);
-                    showToast('网络错误，请重试', 'error');
+                    handleError(err, '授权失败，请重试');
                     showAuthStep();
                 });
         }
@@ -491,15 +489,7 @@
                     openId: openId 
                 })
             })
-            .then(res => {
-                // 先检查HTTP状态码
-                if (!res.ok) {
-                    return res.json().then(data => {
-                        throw new Error(data.message || '请求失败');
-                    });
-                }
-                return res.json();
-            })
+            .then(handleResponse)
             .then(data => {
                 btn.classList.remove('loading');
                 
@@ -518,16 +508,16 @@
                     document.getElementById('captchaError').textContent = 
                         data.message || '发送失败';
                     document.getElementById('captchaError').classList.add('show');
+                    showToast(data.message || '发送失败', 'error');
                     btn.disabled = false;
                 }
             })
             .catch(err => {
-                console.error('Error:', err);
                 btn.classList.remove('loading');
                 btn.disabled = false;
-                document.getElementById('captchaError').textContent = err.message || '网络错误，请重试';
+                const message = handleError(err, '发送验证码失败');
+                document.getElementById('captchaError').textContent = message;
                 document.getElementById('captchaError').classList.add('show');
-                showToast(err.message || '网络错误，请重试', 'error');
             });
         }
 
@@ -595,7 +585,7 @@
                     captcha: captcha
                 })
             })
-            .then(res => res.json())
+            .then(handleResponse)
             .then(data => {
                 btn.classList.remove('loading');
                 
@@ -606,14 +596,16 @@
                     document.getElementById('captchaError').textContent = 
                         data.message || '绑定失败';
                     document.getElementById('captchaError').classList.add('show');
+                    showToast(data.message || '绑定失败', 'error');
                     btn.disabled = false;
                 }
             })
             .catch(err => {
-                console.error('Error:', err);
                 btn.classList.remove('loading');
                 btn.disabled = false;
-                showToast('网络错误，请重试', 'error');
+                const message = handleError(err, '绑定失败');
+                document.getElementById('captchaError').textContent = message;
+                document.getElementById('captchaError').classList.add('show');
             });
         }
 
@@ -665,6 +657,36 @@
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 3000);
+        }
+
+        // 统一处理响应，解析 JSON 并处理错误
+        async function handleResponse(res) {
+            const contentType = res.headers.get('content-type');
+            
+            // 检查是否返回的是 JSON
+            if (!contentType || !contentType.includes('application/json')) {
+                // 非 JSON 响应，可能是代理错误页面
+                const text = await res.text();
+                console.error('非JSON响应:', text.substring(0, 200));
+                throw new Error('服务器响应异常，请检查网络或联系管理员');
+            }
+            
+            const data = await res.json();
+            
+            // 检查 HTTP 状态码
+            if (!res.ok) {
+                throw new Error(data.message || '请求失败 (HTTP ' + res.status + ')');
+            }
+            
+            return data;
+        }
+
+        // 统一错误处理
+        function handleError(err, defaultMessage) {
+            console.error('Error:', err);
+            const message = err.message || defaultMessage || '网络错误，请重试';
+            showToast(message, 'error');
+            return message;
         }
     </script>
 </body>

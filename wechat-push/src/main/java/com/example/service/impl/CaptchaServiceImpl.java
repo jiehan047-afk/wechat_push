@@ -7,13 +7,10 @@ import jakarta.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
-import java.text.MessageFormat;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -31,6 +28,10 @@ public class CaptchaServiceImpl implements CaptchaService {
 
     private final SecureRandom random = new SecureRandom();
 
+    public static void main(String[] args) {
+        System.out.println(String.format(Constant.Captcha.REDIS_KEY_CAPTCHA_CODE, "2222"));
+    }
+
     @Override
     public String sendCaptcha(String userId, String openId) {
         logger.info("发送验证码请求: userId={}, openId={}", userId, openId);
@@ -42,7 +43,7 @@ public class CaptchaServiceImpl implements CaptchaService {
         }
 
         // 2. 检查发送频率限制
-        String limitKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_LIMIT, userId);
+        String limitKey = String.format(Constant.Captcha.REDIS_KEY_CAPTCHA_LIMIT, userId);
         if (Boolean.TRUE.equals(redisTemplate.hasKey(limitKey))) {
             Long ttl = redisTemplate.getExpire(limitKey, TimeUnit.SECONDS);
             throw new RuntimeException("验证码发送频繁，请" + ttl + "秒后重试");
@@ -52,8 +53,8 @@ public class CaptchaServiceImpl implements CaptchaService {
         String captcha = generateCaptcha();
 
         // 4. 存入Redis
-        String codeKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_CODE, userId);
-//        String bindKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_BIND, userId);
+        String codeKey = String.format(Constant.Captcha.REDIS_KEY_CAPTCHA_CODE, userId);
+//        String bindKey = String.format(Constant.Captcha.REDIS_KEY_CAPTCHA_BIND, userId);
 
         redisTemplate.opsForValue().set(codeKey, captcha, 
                 Constant.Captcha.CAPTCHA_EXPIRE_MINUTES, TimeUnit.MINUTES);
@@ -86,7 +87,7 @@ public class CaptchaServiceImpl implements CaptchaService {
     public boolean verifyCaptcha(String userId, String captcha) {
         logger.info("验证验证码: userId={}, captcha={}", userId, captcha);
 
-        String codeKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_CODE, userId);
+        String codeKey = String.format(Constant.Captcha.REDIS_KEY_CAPTCHA_CODE, userId);
         String storedCaptcha = redisTemplate.opsForValue().get(codeKey);
 
         if (StringUtils.isBlank(storedCaptcha)) {
@@ -104,15 +105,15 @@ public class CaptchaServiceImpl implements CaptchaService {
 
     @Override
     public String getStoredOpenId(String userId) {
-        String bindKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_BIND, userId);
+        String bindKey = String.format(Constant.Captcha.REDIS_KEY_CAPTCHA_BIND, userId);
         return redisTemplate.opsForValue().get(bindKey);
     }
 
     @Override
     public void clearCaptcha(String userId) {
-        String codeKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_CODE, userId);
-        String bindKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_BIND, userId);
-        String limitKey = MessageFormat.format(Constant.Captcha.REDIS_KEY_CAPTCHA_LIMIT, userId);
+        String codeKey = String.format(Constant.Captcha.REDIS_KEY_CAPTCHA_CODE, userId);
+        String bindKey = String.format(Constant.Captcha.REDIS_KEY_CAPTCHA_BIND, userId);
+        String limitKey = String.format(Constant.Captcha.REDIS_KEY_CAPTCHA_LIMIT, userId);
 
         redisTemplate.delete(codeKey);
         redisTemplate.delete(bindKey);

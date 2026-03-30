@@ -1,5 +1,6 @@
 package com.example.ding;
 
+import com.alibaba.fastjson.JSON;
 import com.aliyun.dingtalkoauth2_1_0.Client;
 import com.aliyun.dingtalkoauth2_1_0.models.GetAccessTokenRequest;
 import com.aliyun.dingtalkoauth2_1_0.models.GetAccessTokenResponse;
@@ -10,7 +11,6 @@ import com.dingtalk.api.request.OapiV2UserGetRequest;
 import com.dingtalk.api.request.OapiV2UserGetuserinfoRequest;
 import com.dingtalk.api.response.OapiV2UserGetResponse;
 import com.dingtalk.api.response.OapiV2UserGetuserinfoResponse;
-import com.alibaba.fastjson.JSON;
 import com.example.constant.Constant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +18,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.text.MessageFormat;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service
@@ -47,7 +45,7 @@ public class DingApiClient {
      */
     public String getToken(String appkey, String appsecret) throws Exception {
         // 生成 Redis 缓存 Key
-        String redisKey = MessageFormat.format(Constant.DingTalk.REDIS_KEY_TOKEN_TEMPLATE, appkey, appsecret);
+        String redisKey = String.format(Constant.DingTalk.REDIS_KEY_TOKEN_TEMPLATE, appkey, appsecret);
         
         // 先尝试从缓存获取
         String cachedToken = redisTemplate.opsForValue().get(redisKey);
@@ -104,7 +102,7 @@ public class DingApiClient {
     public OapiV2UserGetResponse.UserGetResponse getUserInfo(String userId, String appkey, String appsecret) throws Exception {
         log.info("根据userId获取userinfo开始:{}", userId);
         // 生成 Redis 缓存的 key
-        String redisKey = MessageFormat.format(Constant.DingTalk.REDIS_KEY_USER_TEMPLATE, userId);
+        String redisKey = String.format(Constant.DingTalk.REDIS_KEY_USER_TEMPLATE, userId);
         
         // 先从 Redis 中获取用户信息
         String cachedUserInfo = redisTemplate.opsForValue().get(redisKey);
@@ -118,7 +116,7 @@ public class DingApiClient {
 
     public OapiV2UserGetResponse getDingUserInfo(String userId, String appkey, String appsecret) throws Exception {
         // 生成 Redis 缓存的 key
-        String redisKey = MessageFormat.format(Constant.DingTalk.REDIS_KEY_USER_TEMPLATE, userId);
+        String redisKey = String.format(Constant.DingTalk.REDIS_KEY_USER_TEMPLATE, userId);
         OapiV2UserGetResponse rsp = getOapiV2UserGetResponse(userId, appkey, appsecret);
         if (!rsp.isSuccess()) {
             log.error("根据userId获取userinfo失败:{}", rsp.getErrmsg());

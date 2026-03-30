@@ -24,7 +24,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.text.MessageFormat;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -144,7 +143,7 @@ public class DingTalkEventListenerServiceImpl {
     }
 
     void process(JSONObject bizData, String eventType, String eventId) throws Exception {
-        String redisKey = MessageFormat.format(Constant.DingTalk.REDIS_KEY_EVENT_TEMPLATE, eventId);
+        String redisKey = String.format(Constant.DingTalk.REDIS_KEY_EVENT_TEMPLATE, eventId);
         // 先从 Redis 中获取待办信息
         String cachedInfo = redisTemplate.opsForValue().get(redisKey);
         if (StringUtils.isBlank(cachedInfo)) {
