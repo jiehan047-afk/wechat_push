@@ -7,6 +7,7 @@ import com.example.service.WeChatService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,13 +72,14 @@ public class SysNotifyController {
 //    @Operation(summary = "获取钉钉详情", description = "根据任务ID获取钉钉详情")
 //    public R<Void> getDingdingDetail(){
 //
+//
 //        // 构建模板消息数据
 //        Map<String, TemplateData> templateData = new HashMap<>();
-//        templateData.put("thing11", new TemplateData("ceshi", "#173177"));
-//        templateData.put("thing9", new TemplateData("Davishi", "#173177"));
-//        templateData.put("time3", new TemplateData("2026-03-25", "#173177"));
+//        templateData.put("thing8", new TemplateData("请审批【吴芳芳】提交的【研究生部部门，部长助理岗位】的人力需求申请".substring(0,16) +  "..."));
+//        templateData.put("thing4", new TemplateData("Davishi", "#173177"));
+//        templateData.put("time9", new TemplateData("2026-03-25", "#173177"));
 //        // 调用服务层处理业务逻辑
-//        boolean response = weChatService.sendTemplateMessage("MrCZq4VwC2yACNJCjetleQ",templateData);
+//        boolean response = weChatService.sendTemplateMessage("o-sat2H23OJGrjLf-uPLkfssE_nc",templateData,"dasdjha");
 //        System.out.println( response);
 //        return R.success();
 //    }

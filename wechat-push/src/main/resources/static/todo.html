@@ -331,37 +331,157 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.min.js"></script>
     <script>
-        // 检查登录状态
-        function checkLogin() {
-            const token = localStorage.getItem('token');
-            const userId = localStorage.getItem('userId');
-            if (!token || !userId) {
-                window.location.href = 'login.html';
-                return false;
-            }
-            document.getElementById('userName').textContent = `用户：${userId}`;
-            return true;
+        let currentUserId = null;
+        let currentOpenId = null;
+
+        // 从URL获取参数
+        function getUrlParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
         }
 
-        // 退出登录
+        // 检查登录状态 - 微信授权流程
+        async function checkLogin() {
+            const code = getUrlParam('code');
+            const storedOpenId = localStorage.getItem('openId');
+            const storedUserId = localStorage.getItem('userId');
+
+            // 如果URL有code，说明是微信授权回调
+            if (code) {
+                try {
+                    // 用code换取openId
+                    const callbackRes = await axios.get('/api/user-bind/wx-callback', {
+                        params: { code: code }
+                    });
+                    
+                    if (callbackRes.data.code === 0) {
+                        const openId = callbackRes.data.data.openId;
+                        currentOpenId = openId;
+                        localStorage.setItem('openId', openId);
+                        
+                        // 根据openId查询绑定用户
+                        return await getUserByOpenId(openId);
+                    } else {
+                        showError('微信授权失败：' + callbackRes.data.message);
+                        return false;
+                    }
+                } catch (error) {
+                    console.error('微信授权回调失败:', error);
+                    showError('微信授权失败，请重试');
+                    return false;
+                }
+            }
+
+            // 如果本地存储有openId，直接查询绑定用户
+            if (storedOpenId) {
+                currentOpenId = storedOpenId;
+                return await getUserByOpenId(storedOpenId);
+            }
+
+            // 如果本地存储有userId（兼容旧逻辑），直接使用
+            if (storedUserId) {
+                currentUserId = storedUserId;
+                document.getElementById('userName').textContent = `用户：${storedUserId}`;
+                return true;
+            }
+
+            // 都没有，发起微信授权
+            await startWxAuth();
+            return false;
+        }
+
+        // 根据openId查询绑定用户
+        async function getUserByOpenId(openId) {
+            try {
+                const res = await axios.get('/api/user-bind/get-by-openid', {
+                    params: { openId: openId }
+                });
+
+                if (res.data.code === 0) {
+                    currentUserId = res.data.data.userId;
+                    localStorage.setItem('userId', currentUserId);
+                    document.getElementById('userName').textContent = `用户：${currentUserId}`;
+                    return true;
+                } else {
+                    // 未绑定工号
+                    showBindPrompt();
+                    return false;
+                }
+            } catch (error) {
+                console.error('查询绑定用户失败:', error);
+                showError('查询用户信息失败，请重试');
+                return false;
+            }
+        }
+
+        // 发起微信授权
+        async function startWxAuth() {
+            const redirectUri = encodeURIComponent(window.location.origin + window.location.pathname);
+            try {
+                const res = await axios.get('/api/user-bind/wx-auth-url', {
+                    params: { 
+                        redirectUri: redirectUri,
+                        state: 'todo'
+                    }
+                });
+                if (res.data.code === 0) {
+                    window.location.href = res.data.data.authUrl;
+                } else {
+                    showError('获取授权链接失败');
+                }
+            } catch (error) {
+                console.error('获取授权链接失败:', error);
+                showError('获取授权链接失败，请重试');
+            }
+        }
+
+        // 显示未绑定提示
+        function showBindPrompt() {
+            document.getElementById('todoLoading').style.display = 'none';
+            document.getElementById('todoEmpty').innerHTML = `
+                <i class="bi bi-person-x" style="font-size: 64px; color: #dc3545;"></i>
+                <h3>还未绑定工号</h3>
+                <p>请先绑定工号后再使用待办功能</p>
+                <a href="bind.html?openId=${currentOpenId}" class="btn btn-primary mt-3">前往绑定</a>
+            `;
+            document.getElementById('todoEmpty').style.display = 'block';
+            document.getElementById('logoutBtn').textContent = '重新授权';
+        }
+
+        // 显示错误信息
+        function showError(message) {
+            document.getElementById('todoLoading').style.display = 'none';
+            document.getElementById('todoEmpty').innerHTML = `
+                <i class="bi bi-exclamation-triangle" style="font-size: 64px; color: #dc3545;"></i>
+                <h3>出错了</h3>
+                <p>${message}</p>
+                <button onclick="location.reload()" class="btn btn-primary mt-3">重试</button>
+            `;
+            document.getElementById('todoEmpty').style.display = 'block';
+        }
+
+        // 退出登录/重新授权
         document.getElementById('logoutBtn').addEventListener('click', function() {
-            localStorage.removeItem('token');
+            localStorage.removeItem('openId');
             localStorage.removeItem('userId');
-            window.location.href = 'login.html';
+            localStorage.removeItem('token');
+            // 重新发起微信授权
+            startWxAuth();
         });
 
         // 获取通知列表
         function getTodoList(type, containerId, loadingId, emptyId) {
-            const token = localStorage.getItem('token');
-            const userId = localStorage.getItem('userId');
+            const userId = currentUserId;
+            
+            if (!userId) {
+                console.error('用户未登录');
+                return;
+            }
             
             // 显示加载状态
             document.getElementById(loadingId).style.display = 'block';
             document.getElementById(containerId).style.display = 'none';
             document.getElementById(emptyId).style.display = 'none';
-            
-            // 构造请求参数
-            // const targets = `{"LoginName":"${userId}"}`;
             
             // 调用接口
             axios.post('/api/sys-notify/sysNotifyTodoRestService/getTodo', {
@@ -369,7 +489,6 @@
                 type: type
             }, {
                 headers: {
-                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 }
             })
@@ -424,9 +543,6 @@
                             <span>${doc.modelName}</span>
                         </div>
                     </div>
-                    <div class="todo-link">
-                        <a href="${doc.link}" target="_blank" class="btn btn-primary">查看详情</a>
-                    </div>
                 `;
                 
                 // 添加动画效果
@@ -447,8 +563,9 @@
         }
 
         // 初始化页面
-        function init() {
-            if (checkLogin()) {
+        async function init() {
+            const loggedIn = await checkLogin();
+            if (loggedIn) {
                 // 加载待办列表
                 getTodoList(null, 'todoList', 'todoLoading', 'todoEmpty');
                 

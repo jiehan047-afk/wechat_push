@@ -69,7 +69,7 @@ dingtalk:
 wechat:
   appid: wxb87f5e064b721821
   secret: 074d1a95eacb895069eb8648005135f7
-  template-id: nVH8QWImfvGfdgdSHr9iPuM9f4A7xpwAOSWiLutlBTg
+  template-id: ktRtRQonoxBVkm0I15UlMvh3A0ltobLf501lM6WZVOo
   url: https://api.weixin.qq.com
   grant_type: authorization_code
   client_grant_type: client_credential
@@ -100,6 +100,7 @@ logging:
   level:
     com.example: debug
     org.springframework: info
+    org.springframework.web.servlet.resource: warn
 
 
 

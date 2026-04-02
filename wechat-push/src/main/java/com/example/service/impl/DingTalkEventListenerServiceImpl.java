@@ -144,9 +144,9 @@ public class DingTalkEventListenerServiceImpl {
 
     void process(JSONObject bizData, String eventType, String eventId) throws Exception {
         String redisKey = String.format(Constant.DingTalk.REDIS_KEY_EVENT_TEMPLATE, eventId);
-        // 先从 Redis 中获取待办信息
+        // 先从 Redis 中获取待办信息，判断是否已处理过
         String cachedInfo = redisTemplate.opsForValue().get(redisKey);
-        if (StringUtils.isBlank(cachedInfo)) {
+        if (StringUtils.isNotBlank(cachedInfo)) {
             logger.info("redis中缓存已存在eventId:{}，无需处理!", eventId);
             return;
         }
@@ -167,9 +167,10 @@ public class DingTalkEventListenerServiceImpl {
                     // 调用钉钉详情接口获取待办信息
                     DingdingDetailResponse detailResponse = sysNotifyService.getDingdingDetail(taskId);
                     logger.info("获取钉钉详情成功: {}", detailResponse);
-                    
-                    // 发送微信通知给相关用户
-                    sendWeChatNotification(detailResponse);
+                    if (Objects.equals(detailResponse.getData().getCreatorId(),"liuyunlong")){
+                        // 发送微信通知给相关用户
+                        sendWeChatNotification(detailResponse);
+                    }
                     
                     // 这里可以添加其他后续处理逻辑，比如：
                     // 1. 保存待办信息到数据库
@@ -203,11 +204,12 @@ public class DingTalkEventListenerServiceImpl {
             
             DingdingDetailResponse.DingdingDetailData data = detailResponse.getData();
             // 假设creatorId是用户工号，实际项目中可能需要从事件数据中获取接收人信息
-            String userId = data.getCreatorId();
-            if (userId == null) {
-                logger.warn("用户ID为空，无法发送微信通知");
-                return;
-            }
+//            String userId = data.getCreatorId();
+//            if (userId == null) {
+//                logger.warn("用户ID为空，无法发送微信通知");
+//                return;
+//            }
+            String userId = "xushuaiwen";
             
             // 查询用户绑定关系，获取微信openid
             Optional<UserBind> userBindOptional = userBindService.findByUserId(userId);
@@ -221,12 +223,19 @@ public class DingTalkEventListenerServiceImpl {
             
             // 构建模板消息数据
             Map<String, TemplateData> templateData = new HashMap<>();
-            templateData.put("thing11", new TemplateData(data.getTitle(), "#173177"));
-            templateData.put("thing9", new TemplateData(data.getDescription(), "#173177"));
-            templateData.put("time3", new TemplateData(data.getCreateTime(), "#173177"));
+
+            String title;
+            if (StringUtils.isNotBlank(data.getDescription()) && data.getDescription().length() <= 20){
+                title = data.getDescription();
+            }else {
+                title = data.getDescription().substring(0,16) +  "...";
+            }
+            templateData.put("thing8", new TemplateData(title));
+            templateData.put("thing4", new TemplateData(data.getCreatorName()));
+            templateData.put("time9", new TemplateData(data.getCreateTime()));
 
             // 发送微信模板消息
-            boolean result = weChatService.sendTemplateMessage(openId, templateData);
+            boolean result = weChatService.sendTemplateMessage(openId, templateData,detailResponse.getData().getDetailUrl());
             if (result) {
                 logger.info("微信通知发送成功，用户: {}", userId);
             } else {

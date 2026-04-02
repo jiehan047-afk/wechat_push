@@ -118,4 +118,22 @@ public class UserBindController {
         );
         return R.success(userBind);
     }
+
+    /**
+     * 根据openId查询绑定用户
+     * @param openId 微信openid
+     * @return 绑定信息
+     */
+    @GetMapping("/get-by-openid")
+    @Operation(summary = "根据openId查询绑定用户", description = "根据微信openid查询绑定的用户工号")
+    public R<Map<String, String>> getByOpenId(
+            @Parameter(description = "微信openid", required = true) @RequestParam String openId) {
+        logger.info("根据openId查询绑定用户: openId={}", openId);
+        return userBindService.findByOpenId(openId)
+                .map(userBind -> R.success(Map.of(
+                        "userId", userBind.getUserId(),
+                        "openId", userBind.getOpenId()
+                )))
+                .orElse(R.error("未绑定工号"));
+    }
 }

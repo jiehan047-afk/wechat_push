@@ -22,7 +22,7 @@ public interface WeChatService {
      * @param templateData 模板数据
      * @return 发送结果
      */
-    boolean sendTemplateMessage(String openId, Map<String, TemplateData> templateData);
+    boolean sendTemplateMessage(String openId, Map<String, TemplateData> templateData,String jumpUrl);
     
     /**
      * 生成微信授权URL

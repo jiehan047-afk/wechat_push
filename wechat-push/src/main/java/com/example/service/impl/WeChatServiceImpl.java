@@ -73,7 +73,7 @@ public class WeChatServiceImpl implements WeChatService {
         if (response != null && response.containsKey(Constant.WeChat.ACCESS_TOKEN_KEY)) {
             accessToken = (String) response.get(Constant.WeChat.ACCESS_TOKEN_KEY);
             // 获取过期时间（微信返回的是秒数）
-            Long expiresIn = response.containsKey(Constant.WeChat.EXPIRES_IN_KEY) ? ((Number) response.get(Constant.WeChat.EXPIRES_IN_KEY)).longValue() : 7200L;
+            long expiresIn = response.containsKey(Constant.WeChat.EXPIRES_IN_KEY) ? ((Number) response.get(Constant.WeChat.EXPIRES_IN_KEY)).longValue() : 7200L;
             
             logger.info("获取微信access_token成功: {}，有效期: {}秒", accessToken, expiresIn);
             
@@ -97,7 +97,7 @@ public class WeChatServiceImpl implements WeChatService {
      * @return 发送结果
      */
     @Override
-    public boolean sendTemplateMessage(String openId, Map<String, TemplateData> templateData) {
+    public boolean sendTemplateMessage(String openId, Map<String, TemplateData> templateData,String jumpUrl) {
         logger.info("开始发送微信模板消息给openid: {}", openId);
         
         try {
@@ -108,6 +108,7 @@ public class WeChatServiceImpl implements WeChatService {
             Map<String, Object> requestBody = new HashMap<>();
             requestBody.put("touser", openId);
             requestBody.put("template_id", templateId);
+            requestBody.put("url", jumpUrl);
             requestBody.put("data", templateData);
             
             // 设置请求头

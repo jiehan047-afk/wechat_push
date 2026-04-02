@@ -397,8 +397,15 @@
             const urlParams = new URLSearchParams(window.location.search);
             const code = urlParams.get('code');
             const state = urlParams.get('state');
+            const openIdParam = urlParams.get('openId');
             
-            if (code) {
+            // 清除URL中的openId参数（安全考虑）
+            if (openIdParam) {
+                openId = openIdParam;
+                localStorage.setItem('wx_openId', openId);
+                window.history.replaceState({}, document.title, window.location.pathname);
+                showBindStep();
+            } else if (code) {
                 // 微信授权回调
                 handleWxCallback(code, state);
             } else {
