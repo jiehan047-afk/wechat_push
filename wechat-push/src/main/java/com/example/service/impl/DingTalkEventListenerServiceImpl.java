@@ -167,10 +167,10 @@ public class DingTalkEventListenerServiceImpl {
                     // 调用钉钉详情接口获取待办信息
                     DingdingDetailResponse detailResponse = sysNotifyService.getDingdingDetail(taskId);
                     logger.info("获取钉钉详情成功: {}", detailResponse);
-                    if (Objects.equals(detailResponse.getData().getCreatorId(),"liuyunlong")){
+//                    if (Objects.equals(detailResponse.getData().getCreatorId(),"liuyunlong")){
                         // 发送微信通知给相关用户
                         sendWeChatNotification(detailResponse);
-                    }
+//                    }
                     
                     // 这里可以添加其他后续处理逻辑，比如：
                     // 1. 保存待办信息到数据库
@@ -204,12 +204,12 @@ public class DingTalkEventListenerServiceImpl {
             
             DingdingDetailResponse.DingdingDetailData data = detailResponse.getData();
             // 假设creatorId是用户工号，实际项目中可能需要从事件数据中获取接收人信息
-//            String userId = data.getCreatorId();
-//            if (userId == null) {
-//                logger.warn("用户ID为空，无法发送微信通知");
-//                return;
-//            }
-            String userId = "xushuaiwen";
+            String userId = data.getRecipientId();
+            if (userId == null) {
+                logger.warn("用户ID为空，无法发送微信通知");
+                return;
+            }
+//            String userId = "xushuaiwen";
             
             // 查询用户绑定关系，获取微信openid
             Optional<UserBind> userBindOptional = userBindService.findByUserId(userId);

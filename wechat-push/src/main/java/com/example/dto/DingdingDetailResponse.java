@@ -86,5 +86,11 @@ public class DingdingDetailResponse {
          */
         @Schema(description = "详情URL")
         private String detailUrl;
+
+        /**
+         * 接收人id
+         */
+        @Schema(description = "接收人id")
+        private String recipientId;
     }
 }
