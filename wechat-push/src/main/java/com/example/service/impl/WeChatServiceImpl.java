@@ -16,6 +16,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -103,12 +105,14 @@ public class WeChatServiceImpl implements WeChatService {
         try {
             String accessToken = getAccessToken();
             String url = String.format(Constant.WeChat.WX_SEND_TEMPLATE_MESSAGE_URL, accessToken);
+
+            String encodedJumpUrl = URLEncoder.encode(jumpUrl, StandardCharsets.UTF_8);
             
             // 构建请求体
             Map<String, Object> requestBody = new HashMap<>();
             requestBody.put("touser", openId);
             requestBody.put("template_id", templateId);
-            requestBody.put("url", jumpUrl);
+            requestBody.put("url", encodedJumpUrl);
             requestBody.put("data", templateData);
             
             // 设置请求头
