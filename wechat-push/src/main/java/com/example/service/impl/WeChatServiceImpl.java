@@ -39,6 +39,9 @@ public class WeChatServiceImpl implements WeChatService {
     
     @Value("${wechat.template-id}")
     private String templateId;
+
+    @Value("${dingtalk.pre-url}")
+    private String preUrl;
     
     private final RestTemplate restTemplate = new RestTemplate();
     private final StringRedisTemplate redisTemplate;
@@ -106,8 +109,8 @@ public class WeChatServiceImpl implements WeChatService {
             String accessToken = getAccessToken();
             String url = String.format(Constant.WeChat.WX_SEND_TEMPLATE_MESSAGE_URL, accessToken);
 
-            String encodedJumpUrl = URLEncoder.encode(jumpUrl, StandardCharsets.UTF_8);
-            
+            String encodedJumpUrl = preUrl + jumpUrl;
+
             // 构建请求体
             Map<String, Object> requestBody = new HashMap<>();
             requestBody.put("touser", openId);

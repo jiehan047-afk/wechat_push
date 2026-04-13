@@ -64,6 +64,7 @@ dingtalk:
   client-secret: G4dapskIrUi6-UABXuzqNtiIMdNPt_qxvFIJ9KnpfDSSx_E1HGA2HMh_guTAYYCI
   agentId: 4312159084
   duration: 3600
+  pre-url: https://applink.dingtalk.com/page/link?url=
 
 # 微信配置
 wechat:
