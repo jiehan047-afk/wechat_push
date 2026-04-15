@@ -109,7 +109,7 @@ public class WeChatServiceImpl implements WeChatService {
             String accessToken = getAccessToken();
             String url = String.format(Constant.WeChat.WX_SEND_TEMPLATE_MESSAGE_URL, accessToken);
 
-            String encodedJumpUrl = preUrl + URLEncoder.encode(jumpUrl, StandardCharsets.UTF_8);
+            String encodedJumpUrl = preUrl + URLEncoder.encode(jumpUrl, StandardCharsets.UTF_8) + Constant.DingTalk.JUMP_AFTER_URL;
 
             // 构建请求体
             Map<String, Object> requestBody = new HashMap<>();

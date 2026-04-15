@@ -42,6 +42,9 @@ public class Constant {
         
         // 事件类型
         public static final String EVENT_TYPE_TODO_CHANGE = "todo_task_create";
+
+        // 跳转链接后缀
+        public static final String JUMP_AFTER_URL = "&target=workbench";
     }
 
     /**
