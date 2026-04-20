@@ -32,7 +32,7 @@
         
         .header-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
@@ -254,9 +254,7 @@
         
         @media (max-width: 768px) {
             .header-content {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
+                justify-content: center;
             }
             
             .container {
@@ -278,9 +276,7 @@
 <body>
     <div class="header">
         <div class="header-content">
-            <h1 class="header-title">系统通知管理</h1>
             <div class="user-info">
-                <span class="user-name" id="userName">用户：</span>
                 <button id="logoutBtn" class="btn-logout">退出登录</button>
             </div>
         </div>
@@ -381,7 +377,6 @@
             // 如果本地存储有userId（兼容旧逻辑），直接使用
             if (storedUserId) {
                 currentUserId = storedUserId;
-                document.getElementById('userName').textContent = `用户：${storedUserId}`;
                 return true;
             }
 
@@ -400,7 +395,6 @@
                 if (res.data.code === 0) {
                     currentUserId = res.data.data.userId;
                     localStorage.setItem('userId', currentUserId);
-                    document.getElementById('userName').textContent = `用户：${currentUserId}`;
                     return true;
                 } else {
                     // 未绑定工号
@@ -440,8 +434,8 @@
             document.getElementById('todoLoading').style.display = 'none';
             document.getElementById('todoEmpty').innerHTML = `
                 <i class="bi bi-person-x" style="font-size: 64px; color: #dc3545;"></i>
-                <h3>还未绑定工号</h3>
-                <p>请先绑定工号后再使用待办功能</p>
+                <h3>还未绑定账号</h3>
+                <p>请先绑定账号后再使用待办功能</p>
                 <a href="bind.html?openId=${currentOpenId}" class="btn btn-primary mt-3">前往绑定</a>
             `;
             document.getElementById('todoEmpty').style.display = 'block';

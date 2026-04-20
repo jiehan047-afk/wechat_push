@@ -78,8 +78,9 @@ wechat:
 
 # 系统通知配置
 sys-notify:
-  api-url: http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
-  basic-auth-token: cmVzdC1ub3RpZnk6eWt5MTIz
+#  api-url: http://10.1.17.35:8080/api/sys-notify/sysNotifyTodoRestService/getTodo
+  api-url: https://portal.smart.org.cn/api/sys-notify/sysNotifyTodoRestService/getTodo
+  basic-auth-token: c21hcnQtZGQ6U21hcnRAMjAyNmRk
   basic-auth-token-detail: c21hcnQtZGQ6U21hcnRAMjAyNmRk
   dingding-detail-url: https://portal.smart.org.cn/api/smart-dingding/smartDingdingDetailRestService/dingdingDetail
 
