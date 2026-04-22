@@ -508,15 +508,34 @@
             });
         }
 
+        // 钉钉跳转URL前缀和后缀
+        const DINGTALK_PRE_URL = 'https://applink.dingtalk.com/page/link?url=';
+        const DINGTALK_JUMP_AFTER_URL = '&target=workbench';
+
+        // 跳转到钉钉
+        function jumpToDingTalk(link) {
+            if (link) {
+                const encodedUrl = encodeURIComponent(link);
+                const finalUrl = DINGTALK_PRE_URL + encodedUrl + DINGTALK_JUMP_AFTER_URL;
+                window.location.href = finalUrl;
+            } else {
+                alert('该待办没有可跳转的链接');
+            }
+        }
+
         // 渲染待办列表
         function renderTodoList(docs, containerId) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
-            
+
             docs.forEach(doc => {
                 const todoItem = document.createElement('div');
                 todoItem.className = 'todo-item';
-                
+                todoItem.style.cursor = 'pointer';
+                todoItem.onclick = function() {
+                    jumpToDingTalk(doc.link);
+                };
+
                 todoItem.innerHTML = `
                     <div class="todo-subject">${doc.subject}</div>
                     <div class="todo-meta">
@@ -531,10 +550,6 @@
                         <div class="meta-item">
                             <i class="bi bi-building"></i>
                             <span>${doc.appName || 'OA系统'}</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="bi bi-module"></i>
-                            <span>${doc.modelName}</span>
                         </div>
                     </div>
                 `;
@@ -561,7 +576,7 @@
             const loggedIn = await checkLogin();
             if (loggedIn) {
                 // 加载待办列表
-                getTodoList(null, 'todoList', 'todoLoading', 'todoEmpty');
+                getTodoList(1, 'todoList', 'todoLoading', 'todoEmpty');
                 
                 // 监听标签页切换，每次切换都重新加载数据
                 const tabEl = document.getElementById('myTab');
@@ -569,7 +584,7 @@
                     const tabId = event.target.getAttribute('aria-controls');
                     if (tabId === 'todo') {
                         // 加载待办列表
-                        getTodoList(null, 'todoList', 'todoLoading', 'todoEmpty');
+                        getTodoList(1, 'todoList', 'todoLoading', 'todoEmpty');
                     } else if (tabId === 'done') {
                         // 加载已办列表
                         getTodoList(3, 'doneList', 'doneLoading', 'doneEmpty');

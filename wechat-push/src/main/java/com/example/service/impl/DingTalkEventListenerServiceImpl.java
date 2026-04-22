@@ -25,6 +25,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -153,6 +154,12 @@ public class DingTalkEventListenerServiceImpl {
 
         if (Objects.equals(eventType, Constant.DingTalk.EVENT_TYPE_TODO_CHANGE)) {
             logger.info("接收到待办变更事件:{}", bizData.toJSONString());
+
+            if (LocalDate.now().isAfter(Constant.Deadline.TODO_AND_NOTIFY)) {
+                logger.warn("已超过服务截止日期，跳过微信通知发送，eventId: {}", eventId);
+                return;
+            }
+
             // 简化处理，实际项目中需要根据具体的事件结构解析
             BizResDto bizResDto = JSON.parseObject(JSON.toJSONString(bizData), BizResDto.class);
             String taskId = bizResDto.getTaskId();

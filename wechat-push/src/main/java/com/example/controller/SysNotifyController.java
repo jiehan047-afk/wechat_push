@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.common.R;
+import com.example.constant.Constant;
 import com.example.dto.*;
 import com.example.service.SysNotifyService;
 import com.example.service.WeChatService;
@@ -13,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +45,13 @@ public class SysNotifyController {
     public R<TodoResponse> getTodo(
             @Parameter(description = "请求参数", required = true) @RequestBody TodoRequest request) {
         logger.info("获取通知列表请求: targets={}, type={}", request.getTargets(), request.getType());
-        
+
+        if (LocalDate.now().isAfter(Constant.Deadline.TODO_AND_NOTIFY)) {
+            logger.warn("已超过服务截止日期，拒绝查询待办通知列表");
+            return R.success(null);
+//            return R.error(403, "服务已到期，无法查询待办通知列表");
+        }
+
         // 调用服务层处理业务逻辑
         TodoResponse response = sysNotifyService.getTodo(request.getTargets(), request.getType(), request.getRowSize(), request.getPageNo());
         

@@ -1,5 +1,7 @@
 package com.example.service.impl;
 
+import com.example.entity.UserAccount;
+import com.example.repository.UserAccountRepository;
 import com.example.service.EmailService;
 import jakarta.annotation.Resource;
 import org.slf4j.Logger;
@@ -12,8 +14,6 @@ import org.springframework.stereotype.Service;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 邮件服务实现类
@@ -26,37 +26,26 @@ public class EmailServiceImpl implements EmailService {
     @Resource
     private JavaMailSender mailSender;
 
+    @Resource
+    private UserAccountRepository userAccountRepository;
+
     @Value("${captcha.email.from}")
     private String fromEmail;
 
     @Value("${captcha.email.subject:【系统通知】绑定验证码}")
     private String emailSubject;
 
-    /**
-     * Mock 数据：工号与邮箱的映射
-     * TODO: 实际项目中应从数据库或HR系统查询
-     */
-    private static final Map<String, String> USER_EMAIL_MAP = new HashMap<>();
-    static {
-        USER_EMAIL_MAP.put("10001", "zhangsan@smart.org.cn");
-        USER_EMAIL_MAP.put("10002", "lisi@smart.org.cn");
-        USER_EMAIL_MAP.put("10003", "wangwu@smart.org.cn");
-    }
-
     @Override
     public String getEmailByUserId(String userId) {
         logger.info("根据工号获取邮箱: userId={}", userId);
 
-        // TODO: 实际项目中应调用HR系统接口或查询数据库
-        String email = USER_EMAIL_MAP.get(userId);
-
-        if (email == null) {
-            // 如果找不到，返回默认格式的邮箱（用于测试）
-            email = userId + "@smart.org.cn";
-            logger.info("未找到工号{}的邮箱", userId);
-        }
-
-        return email;
+        return userAccountRepository.findByUsername(userId)
+                .filter(account -> account.getIsActive() != null && account.getIsActive() == 1)
+                .map(UserAccount::getEmail)
+                .orElseGet(() -> {
+                    logger.warn("未找到工号{}对应的激活账号", userId);
+                    return userId + "@smart.org.cn";
+                });
     }
 
     @Override

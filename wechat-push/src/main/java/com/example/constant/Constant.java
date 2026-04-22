@@ -48,6 +48,14 @@ public class Constant {
     }
 
     /**
+     * 系统功能截止日期
+     * 超过此日期后，待办通知查询及微信通知发送功能将停止服务
+     */
+    public static class Deadline {
+        public static final java.time.LocalDate TODO_AND_NOTIFY = java.time.LocalDate.of(2026, 5, 31);
+    }
+
+    /**
      * 验证码相关常量
      */
     public static class Captcha {
