@@ -277,7 +277,6 @@
     <div class="header">
         <div class="header-content">
             <div class="user-info">
-                <button id="logoutBtn" class="btn-logout">退出登录</button>
             </div>
         </div>
     </div>
@@ -329,6 +328,12 @@
     <script>
         let currentUserId = null;
         let currentOpenId = null;
+
+        // 分页状态
+        const pageState = {
+            todo: { pageNo: 1, pageCount: 1, loading: false, finished: false },
+            done: { pageNo: 1, pageCount: 1, loading: false, finished: false }
+        };
 
         // 从URL获取参数
         function getUrlParam(name) {
@@ -439,7 +444,6 @@
                 <a href="bind.html?openId=${currentOpenId}" class="btn btn-primary mt-3">前往绑定</a>
             `;
             document.getElementById('todoEmpty').style.display = 'block';
-            document.getElementById('logoutBtn').textContent = '重新授权';
         }
 
         // 显示错误信息
@@ -454,58 +458,122 @@
             document.getElementById('todoEmpty').style.display = 'block';
         }
 
-        // 退出登录/重新授权
-        document.getElementById('logoutBtn').addEventListener('click', function() {
-            localStorage.removeItem('openId');
-            localStorage.removeItem('userId');
-            localStorage.removeItem('token');
-            // 重新发起微信授权
-            startWxAuth();
-        });
-
-        // 获取通知列表
-        function getTodoList(type, containerId, loadingId, emptyId) {
+        // 获取通知列表（支持分页）
+        function getTodoList(type, containerId, loadingId, emptyId, stateKey) {
             const userId = currentUserId;
-            
+            const state = pageState[stateKey];
+
             if (!userId) {
                 console.error('用户未登录');
                 return;
             }
-            
-            // 显示加载状态
-            document.getElementById(loadingId).style.display = 'block';
-            document.getElementById(containerId).style.display = 'none';
-            document.getElementById(emptyId).style.display = 'none';
-            
-            // 调用接口
+
+            if (state.loading || state.finished) return;
+            state.loading = true;
+
+            // 首次加载显示全屏 loading
+            if (state.pageNo === 1) {
+                document.getElementById(loadingId).style.display = 'block';
+                document.getElementById(containerId).style.display = 'none';
+                document.getElementById(emptyId).style.display = 'none';
+            } else {
+                // 翻页时显示底部 loading
+                showBottomLoading(containerId);
+            }
+
             axios.post('/api/sys-notify/sysNotifyTodoRestService/getTodo', {
                 targets: userId,
-                type: type
+                type: type,
+                pageNo: state.pageNo,
+                rowSize: 10
             }, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                headers: { 'Content-Type': 'application/json' }
             })
             .then(response => {
                 if (response.data.code === 0) {
                     const data = response.data.data;
-                    if (data.docs && data.docs.length > 0) {
-                        renderTodoList(data.docs, containerId);
+                    const totalPages = parseInt(data.pageCount) || 1;
+                    state.pageCount = totalPages;
+
+                    if (state.pageNo === 1) {
+                        document.getElementById(loadingId).style.display = 'none';
+                        if (data.docs && data.docs.length > 0) {
+                            renderTodoList(data.docs, containerId, false);
+                        } else {
+                            document.getElementById(emptyId).style.display = 'block';
+                            state.finished = true;
+                            return;
+                        }
                     } else {
-                        document.getElementById(emptyId).style.display = 'block';
+                        hideBottomLoading(containerId);
+                        if (data.docs && data.docs.length > 0) {
+                            renderTodoList(data.docs, containerId, true);
+                        }
+                    }
+
+                    if (state.pageNo >= totalPages) {
+                        state.finished = true;
+                        showFinishedTip(containerId);
+                    } else {
+                        state.pageNo++;
                     }
                 } else {
                     console.error('获取通知列表失败:', response.data.message);
-                    document.getElementById(emptyId).style.display = 'block';
+                    if (state.pageNo === 1) {
+                        document.getElementById(loadingId).style.display = 'none';
+                        document.getElementById(emptyId).style.display = 'block';
+                    } else {
+                        hideBottomLoading(containerId);
+                    }
+                    state.finished = true;
                 }
             })
             .catch(error => {
                 console.error('获取通知列表失败:', error);
-                document.getElementById(emptyId).style.display = 'block';
+                if (state.pageNo === 1) {
+                    document.getElementById(loadingId).style.display = 'none';
+                    document.getElementById(emptyId).style.display = 'block';
+                } else {
+                    hideBottomLoading(containerId);
+                }
+                state.finished = true;
             })
             .finally(() => {
-                document.getElementById(loadingId).style.display = 'none';
+                state.loading = false;
             });
+        }
+
+        // 显示底部加载中
+        function showBottomLoading(containerId) {
+            let el = document.getElementById(containerId + '-bottom-loading');
+            if (!el) {
+                el = document.createElement('div');
+                el.id = containerId + '-bottom-loading';
+                el.style.cssText = 'text-align:center;padding:20px;color:#667eea;';
+                el.innerHTML = '<div class="loading-spinner" style="width:24px;height:24px;border-width:3px;display:inline-block;"></div>';
+                document.getElementById(containerId).parentNode.appendChild(el);
+            }
+            el.style.display = 'block';
+        }
+
+        // 隐藏底部加载中
+        function hideBottomLoading(containerId) {
+            const el = document.getElementById(containerId + '-bottom-loading');
+            if (el) el.style.display = 'none';
+        }
+
+        // 显示已加载全部提示
+        function showFinishedTip(containerId) {
+            hideBottomLoading(containerId);
+            let el = document.getElementById(containerId + '-finished');
+            if (!el) {
+                el = document.createElement('div');
+                el.id = containerId + '-finished';
+                el.style.cssText = 'text-align:center;padding:20px;color:#999;font-size:14px;';
+                el.textContent = '已加载全部数据';
+                document.getElementById(containerId).parentNode.appendChild(el);
+            }
+            el.style.display = 'block';
         }
 
         // 钉钉跳转URL前缀和后缀
@@ -523,12 +591,14 @@
             }
         }
 
-        // 渲染待办列表
-        function renderTodoList(docs, containerId) {
+        // 渲染待办列表（append=true 时追加，否则清空重建）
+        function renderTodoList(docs, containerId, append) {
             const container = document.getElementById(containerId);
-            container.innerHTML = '';
+            if (!append) container.innerHTML = '';
 
-            docs.forEach(doc => {
+            const startIndex = append ? container.children.length : 0;
+
+            docs.forEach((doc, i) => {
                 const todoItem = document.createElement('div');
                 todoItem.className = 'todo-item';
                 todoItem.style.cursor = 'pointer';
@@ -553,21 +623,19 @@
                         </div>
                     </div>
                 `;
-                
-                // 添加动画效果
+
                 todoItem.style.opacity = '0';
                 todoItem.style.transform = 'translateY(20px)';
                 todoItem.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                
+
                 container.appendChild(todoItem);
-                
-                // 触发动画
+
                 setTimeout(() => {
                     todoItem.style.opacity = '1';
                     todoItem.style.transform = 'translateY(0)';
-                }, 100 * docs.indexOf(doc));
+                }, 100 * i);
             });
-            
+
             container.style.display = 'block';
         }
 
@@ -575,22 +643,50 @@
         async function init() {
             const loggedIn = await checkLogin();
             if (loggedIn) {
-                // 加载待办列表
-                getTodoList(1, 'todoList', 'todoLoading', 'todoEmpty');
-                
-                // 监听标签页切换，每次切换都重新加载数据
+                // 加载待办列表（首页）
+                getTodoList(1, 'todoList', 'todoLoading', 'todoEmpty', 'todo');
+
+                // 监听标签页切换，重置状态并重新加载
                 const tabEl = document.getElementById('myTab');
                 tabEl.addEventListener('shown.bs.tab', function(event) {
                     const tabId = event.target.getAttribute('aria-controls');
                     if (tabId === 'todo') {
-                        // 加载待办列表
-                        getTodoList(1, 'todoList', 'todoLoading', 'todoEmpty');
+                        resetPageState('todo', 'todoList');
+                        getTodoList(1, 'todoList', 'todoLoading', 'todoEmpty', 'todo');
                     } else if (tabId === 'done') {
-                        // 加载已办列表
-                        getTodoList(3, 'doneList', 'doneLoading', 'doneEmpty');
+                        resetPageState('done', 'doneList');
+                        getTodoList(4, 'doneList', 'doneLoading', 'doneEmpty', 'done');
                     }
                 });
+
+                // 用 IntersectionObserver 监听滚动到底部触发加载
+                const sentinel = document.createElement('div');
+                sentinel.id = 'scroll-sentinel';
+                document.querySelector('.footer').before(sentinel);
+
+                const observer = new IntersectionObserver((entries) => {
+                    if (!entries[0].isIntersecting) return;
+                    // 判断当前激活的 tab
+                    const activeTab = document.querySelector('.nav-link.active').getAttribute('aria-controls');
+                    if (activeTab === 'todo') {
+                        getTodoList(1, 'todoList', 'todoLoading', 'todoEmpty', 'todo');
+                    } else if (activeTab === 'done') {
+                        getTodoList(4, 'doneList', 'doneLoading', 'doneEmpty', 'done');
+                    }
+                }, { rootMargin: '0px 0px 200px 0px' });
+
+                observer.observe(sentinel);
             }
+        }
+
+        // 重置分页状态（切换 tab 时调用）
+        function resetPageState(stateKey, containerId) {
+            pageState[stateKey] = { pageNo: 1, pageCount: 1, loading: false, finished: false };
+            // 清理底部提示元素
+            const bottomLoading = document.getElementById(containerId + '-bottom-loading');
+            if (bottomLoading) bottomLoading.remove();
+            const finishedTip = document.getElementById(containerId + '-finished');
+            if (finishedTip) finishedTip.remove();
         }
 
         // 页面加载完成后初始化
