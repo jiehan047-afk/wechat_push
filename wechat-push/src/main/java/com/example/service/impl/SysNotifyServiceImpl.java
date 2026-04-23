@@ -1,6 +1,7 @@
 package com.example.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.example.constant.Constant;
 import com.example.dto.DingdingDetailResponse;
 import com.example.dto.TodoResponse;
 import com.example.service.SysNotifyService;
@@ -12,6 +13,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,6 +54,9 @@ public class SysNotifyServiceImpl implements SysNotifyService {
         requestBody.put("type", type);
         requestBody.put("rowSize", rowSize);
         requestBody.put("pageNo", pageNo);
+        if (type != null && type == 4){
+            requestBody.put("otherCond", "[{\"beginTime\":\"" + Constant.Deadline.QUERY_START_TIME + "\"}]");
+        }
 
         // 创建请求实体
         HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(requestBody, headers);

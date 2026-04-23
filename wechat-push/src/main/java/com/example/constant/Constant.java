@@ -53,6 +53,7 @@ public class Constant {
      */
     public static class Deadline {
         public static final java.time.LocalDate TODO_AND_NOTIFY = java.time.LocalDate.of(2026, 5, 31);
+        public static final String QUERY_START_TIME = "2026-04-23 00:00";
     }
 
     /**
