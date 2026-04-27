@@ -237,9 +237,9 @@ public class DingTalkEventListenerServiceImpl {
             }else {
                 title = data.getDescription().substring(0,16) +  "...";
             }
-            templateData.put("thing8", new TemplateData(title));
-            templateData.put("thing4", new TemplateData(data.getCreatorName()));
             templateData.put("time9", new TemplateData(data.getCreateTime()));
+            templateData.put("thing8", new TemplateData(title));
+//            templateData.put("thing4", new TemplateData(data.getCreatorName()));
 
             // 发送微信模板消息
             boolean result = weChatService.sendTemplateMessage(openId, templateData,detailResponse.getData().getDetailUrl());

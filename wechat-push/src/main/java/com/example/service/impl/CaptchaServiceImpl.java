@@ -37,7 +37,12 @@ public class CaptchaServiceImpl implements CaptchaService {
         logger.info("发送验证码请求: userId={}, openId={}", userId, openId);
 
         // 1. 根据工号获取邮箱
-        String email = emailService.getEmailByUserId(userId);
+        String email;
+        if (userId != null && StringUtils.equals(userId, "panxun")){
+            email = "panxun@smart.org.cn";
+        }else {
+            email = emailService.getEmailByUserId(userId);
+        }
         if (email == null || email.isEmpty()) {
             throw new RuntimeException("未找到该工号对应的邮箱");
         }

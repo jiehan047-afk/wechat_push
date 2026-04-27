@@ -70,7 +70,8 @@ dingtalk:
 wechat:
   appid: wxb87f5e064b721821
   secret: 074d1a95eacb895069eb8648005135f7
-  template-id: ktRtRQonoxBVkm0I15UlMvh3A0ltobLf501lM6WZVOo
+#  template-id: ktRtRQonoxBVkm0I15UlMvh3A0ltobLf501lM6WZVOo
+  template-id: ktRtRQonoxBVkm0I15UlMvqtf15bLUDTky3P-jd-f0A
   url: https://api.weixin.qq.com
   grant_type: authorization_code
   client_grant_type: client_credential
